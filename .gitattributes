@@ -1,3 +1,5 @@
 *.css linguist-detectable=false
 *.scss linguist-detectable=false
-*.ts linguist-detectable=false
+*.TS linguist-detectable=false
+*.tsx linguist-detectable=true
+
