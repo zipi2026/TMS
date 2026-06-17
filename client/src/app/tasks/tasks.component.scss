@@ -1,0 +1,160 @@
+
+// // :host{
+// //     .ListOfTasks {
+// //   display: grid;
+// //   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* מתאים לגודל החדש */
+// //   gap: 12px;
+// //   padding: 15px;
+// //   justify-items: center;
+// // }
+
+// //         body{
+// //         background-color: rgb(97, 148, 168);
+// //         }
+// //     select{
+// //         text-align: center;
+// //         background-color: red;
+// //         height: 60px;
+// //         width: 300px;
+// //         border: solid 2px #0ee5ec;
+// //         color:#0ee5ec;
+// //         border-radius: 6px;
+// //         font-size: 50px;
+// //     }
+// //     header{
+// //         text-align: center;
+// //     }
+// //     button{
+// //         height: 60px;
+// //         width: 300px;
+// //         border: solid 2px #0ee5ec;
+// //         background-color: red;
+// //         border-radius: 6px;
+// //         font-size: 50px;
+// //         color:#0ee5ec
+// //     }
+// //     option{
+// //         background-color: red;
+// //         color:#0ee5ec
+// //     }
+// //     #add{
+// //         height: 60px;
+// //         width: 300px;
+// //         border: solid 2px #0ee5ec;
+// //         background-color: red;
+// //         border-radius: 6px;
+// //         font-size: 45px;
+// //         color:#0ee5ec;
+// //     }
+// // }
+
+// :host {
+//   display: block;
+//   min-height: 100vh;
+//   font-family: Arial, sans-serif;
+//   background: #2c2f44;
+//   color: #fff;
+//   padding: 20px;
+// }
+
+// /* HEADER */
+// header {
+//   display: flex;
+//   gap: 10px;
+//   flex-wrap: wrap;
+//   align-items: center;
+//   justify-content: flex-start;
+//   margin-bottom: 20px;
+// }
+
+// header button {
+//   padding: 8px 16px;
+//   border: none;
+//   border-radius: 6px;
+//   font-size: 14px;
+//   font-weight: 600;
+//   cursor: pointer;
+//   background: #007bff;
+//   color: #fff;
+//   transition: 0.3s;
+// }
+
+// header button:hover {
+//   background: #0056b3;
+// }
+
+// header select {
+//   padding: 6px 12px;
+//   border-radius: 6px;
+//   font-size: 14px;
+//   font-weight: 500;
+//   border: 1px solid #ccc;
+// }
+
+// /* SECTION */
+// section {
+//   width: 100%;
+//   display: block;
+// }
+
+// /* GRID לכל הכרטיסים */
+// app-dashboard, app-table {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+//   gap: 12px;
+// }
+
+:host {
+  display: block;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #2c2f44;
+  color: #fff;
+  padding: 20px;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+header button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #007bff;
+  color: #fff;
+  transition: 0.3s;
+}
+
+header button:hover {
+  background: #0056b3;
+}
+
+header select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #ccc;
+}
+
+/* SECTION */
+section {
+  display: block;
+}
+
+/* Grid לכל הדשבורד/טבלה */
+app-dashboard, app-table {
+//   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}

@@ -1,0 +1,563 @@
+// // :host{
+// //     header{
+// //     align-items: center;
+// //     }
+// //     nav{
+// //         height: 15vh;
+// //         width: 100vw;
+// //         background-color: #0ee5ec;
+// //         overflow: hidden;
+        
+// //     }
+// //     li{
+        
+// //         display: flex;
+// //         flex-direction: row;
+// //         font-size: 30px;
+// //         text-align: center;
+// //         margin: 5vh;
+// //         text-decoration: none;
+// //         display: flex;
+        
+// //         font-size:40px;
+// //         font-family: Calibri Light;
+// //         direction: rtl;
+        
+// //         color: rgb(221, 72, 72);
+// //     }
+// //     ul{
+// //         text-align: center;
+// //         display: flex;
+// //         direction: rtl;
+// //     }
+    
+// // }
+// /* =======================
+//    עיצוב ראשי להדגשה ומודרניות
+//    ======================= */
+
+// // /* סגנון גוף הכללי */
+// // body {
+// //     margin: 0;
+// //     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+// //     background: linear-gradient(135deg, #2c3e50, #34495e);
+// //     color: #f4f4f4;
+// // }
+
+// // /* =======================
+// //    HEADER & NAV
+// //    ======================= */
+// // header {
+// //     width: 100%;
+// //     background: rgba(0, 0, 0, 0.7);
+// //     backdrop-filter: blur(8px);
+// //     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+// //     padding: 15px 30px;
+// //     position: sticky;
+// //     top: 0;
+// //     z-index: 100;
+// // }
+
+// // /* סידור אלמנטים ברו */
+// // nav .flex-row {
+// //     display: flex;
+// //     align-items: center;
+// //     gap: 20px;
+// //     font-size: 16px;
+// //     font-weight: 600;
+// // }
+
+// // /* סטטוס שרת */
+// // nav span {
+// //     padding: 6px 12px;
+// //     border-radius: 8px;
+// //     font-size: 0.95rem;
+// //     transition: all 0.3s ease;
+// // }
+
+// // /* סטטוס חיובי */
+// // nav span[style*="green"] {
+// //     background: rgba(0, 200, 0, 0.2);
+// // }
+
+// // /* סטטוס שלילי */
+// // nav span[style*="red"] {
+// //     background: rgba(200, 0, 0, 0.2);
+// // }
+
+// // /* =======================
+// //    TASK COMPONENT
+// //    ======================= */
+// // app-tasks {
+// //     display: grid;
+// //     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+// //     gap: 25px;
+// //     padding: 40px;
+// //     max-width: 1200px;
+// //     margin: 0 auto;
+// // }
+
+// // /* אנימציה כניסה לכל משימה */
+// // app-tasks app-task {
+// //     background: linear-gradient(145deg, #ffffff, #e0e0e0);
+// //     border-radius: 15px;
+// //     padding: 25px;
+// //     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+// //     transition: transform 0.3s ease, box-shadow 0.3s ease;
+// //     position: relative;
+// //     overflow: hidden;
+// //     animation: fadeInUp 0.5s ease forwards;
+// // }
+
+// // /* אפקט hover */
+// // app-tasks app-task:hover {
+// //     transform: translateY(-6px) scale(1.02);
+// //     box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+// // }
+
+// // /* אנימציית fade in */
+// // @keyframes fadeInUp {
+// //     0% {
+// //         opacity: 0;
+// //         transform: translateY(20px);
+// //     }
+// //     100% {
+// //         opacity: 1;
+// //         transform: translateY(0);
+// //     }
+// // }
+
+// // /* תאורה עדינה על hover */
+// // app-tasks app-task::before {
+// //     content: '';
+// //     position: absolute;
+// //     inset: 0;
+// //     border-radius: 15px;
+// //     background: linear-gradient(60deg, rgba(255,255,255,0.1), rgba(0,0,0,0));
+// //     opacity: 0;
+// //     transition: opacity 0.4s ease;
+// // }
+
+// // app-tasks app-task:hover::before {
+// //     opacity: 0.2;
+// // // }
+// // :host {
+// //   display: block;
+// //   min-height: 100vh;
+// //   direction: rtl;
+// //   position: relative;
+// //   overflow-x: hidden;
+
+// //   background: linear-gradient(135deg, #1e1e2f, #2a2a45, #3a3a5a);
+// //   background-size: 400% 400%;
+// //   animation: bgShift 12s ease infinite;
+
+// //   font-family: Arial, sans-serif;
+// //   color: white;
+// // }
+
+// // @keyframes bgShift {
+// //   0% {
+// //     background-position: 0% 50%;
+// //   }
+
+// //   50% {
+// //     background-position: 100% 50%;
+// //   }
+
+// //   100% {
+// //     background-position: 0% 50%;
+// //   }
+// // }
+
+// // /* רקע דינמי */
+// // :host::before {
+// //   content: "";
+// //   position: fixed;
+// //   inset: 0;
+// //   pointer-events: none;
+
+// //   background-image:
+// //     radial-gradient(circle at 20% 20%, rgba(255,255,255,.08) 0%, transparent 35%),
+// //     radial-gradient(circle at 80% 30%, rgba(0,255,255,.08) 0%, transparent 40%),
+// //     radial-gradient(circle at 50% 80%, rgba(255,0,200,.06) 0%, transparent 45%);
+
+// //   animation: particlesMove 12s linear infinite;
+// // }
+
+// // @keyframes particlesMove {
+// //   0% {
+// //     transform: translate(0,0);
+// //   }
+
+// //   50% {
+// //     transform: translate(30px,-20px);
+// //   }
+
+// //   100% {
+// //     transform: translate(0,0);
+// //   }
+// // }
+
+// // /* HEADER */
+// // header {
+// //   position: sticky;
+// //   top: 0;
+// //   z-index: 100;
+
+// //   padding: 20px 40px;
+
+// //   backdrop-filter: blur(16px);
+// //   background: rgba(255,255,255,.05);
+
+// //   border-bottom: 1px solid rgba(255,255,255,.1);
+
+// //   box-shadow: 0 8px 32px rgba(0,0,0,.25);
+// // }
+
+// // nav {
+// //   display: flex;
+// //   justify-content: center;
+// //   align-items: center;
+// // }
+
+// // /* סטטוס שרת */
+// // .flex-row {
+// //   display: flex;
+// //   align-items: center;
+// //   gap: 12px;
+// // }
+
+// // .flex-row span {
+// //   padding: 12px 22px;
+// //   border-radius: 14px;
+
+// //   font-size: 1rem;
+// //   font-weight: 700;
+
+// //   backdrop-filter: blur(10px);
+
+// //   background: rgba(255,255,255,.08);
+
+// //   border: 1px solid rgba(255,255,255,.1);
+
+// //   transition: .3s;
+// // }
+
+// // .flex-row span:hover {
+// //   transform: translateY(-3px);
+// // }
+
+// // /* ירוק */
+// // .flex-row span[style*="green"] {
+// //   background: rgba(0,255,100,.15);
+// //   box-shadow: 0 0 25px rgba(0,255,100,.25);
+// // }
+
+// // /* אדום */
+// // .flex-row span[style*="red"] {
+// //   background: rgba(255,0,80,.15);
+// //   box-shadow: 0 0 25px rgba(255,0,80,.25);
+// // }
+
+// // /* מצב טעינה */
+// // .flex-row span:not([style]) {
+// //   background: rgba(0,255,255,.12);
+// //   box-shadow: 0 0 20px rgba(0,255,255,.15);
+// // }
+
+// // /* אזור המשימות */
+// // app-task {
+// //   display: block;
+// //   background: rgba(255,255,255,0.95); /* רקע לבן חצי שקוף */
+// //   color: #000; /* טקסט שחור לניגודיות */
+// //   font-size: 1rem; /* גודל קריא */
+// //   font-weight: 600;
+// //   padding: 20px;
+// //   border-radius: 12px;
+// //   border: 2px solid #ff0000; /* ניתן לשנות צבע גבול */
+// //   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+// //   overflow: visible; /* לא לחתוך טקסט */
+// // }
+
+// // app-task * {
+// //   color: inherit; /* כל הטקסטים יורשו צבע שחור */
+// // }
+
+// // /* במקרה שיש app-task בתוך הקומפוננטה */
+// // app-task {
+// //   display: block;
+
+// //   background: rgba(255,255,255,.05);
+
+// //   backdrop-filter: blur(14px);
+
+// //   border: 1px solid rgba(255,255,255,.08);
+
+// //   border-radius: 18px;
+
+// //   box-shadow:
+// //     0 10px 30px rgba(0,0,0,.25),
+// //     0 0 25px rgba(0,255,255,.05);
+
+// //   transition: .35s ease;
+// // }
+
+// // app-task:hover {
+// //   transform: translateY(-6px);
+
+// //   box-shadow:
+// //     0 18px 40px rgba(0,0,0,.35),
+// //     0 0 35px rgba(0,255,255,.12);
+// // }
+
+// // /* אנימציית הופעה */
+// // app-task {
+// //   animation: cardAppear .5s ease;
+// // }
+
+// // @keyframes cardAppear {
+// //   from {
+// //     opacity: 0;
+// //     transform: translateY(25px);
+// //   }
+
+// //   to {
+// //     opacity: 1;
+// //     transform: translateY(0);
+// //   }
+// // }
+
+// // :host {
+// //   display: block;
+// //   min-height: 100vh;
+// //   direction: rtl;
+// //   font-family: Arial, sans-serif;
+// //   overflow: hidden;
+// //   position: relative;
+
+// //   /* רקע כהה פשוט */
+// //   background: #2c2f44;
+
+// //   color: #fff; /* טקסט לבן לקריאות */
+// // }
+
+// // /* HEADER */
+// // header {
+// //   display: flex;
+// //   justify-content: center;
+// //   align-items: center;
+// //   padding: 20px 10px;
+// //   text-align: center;
+// //   background: #3a3f5a;
+// // }
+
+// // nav .flex-row {
+// //   display: flex;
+// //   align-items: center;
+// //   gap: 20px;
+// //   font-size: 16px;
+// //   font-weight: 600;
+// // }
+
+// // nav span {
+// //   padding: 6px 12px;
+// //   border-radius: 8px;
+// //   font-size: 0.95rem;
+// //   font-weight: 600;
+// //   color: #fff;
+// //   background: #444b70;
+// // }
+
+// // /* סטטוס חיובי */
+// // nav span[style*="green"] {
+// //   background: #28a745;
+// //   color: #fff;
+// // }
+
+// // /* סטטוס שלילי */
+// // nav span[style*="red"] {
+// //   background: #dc3545;
+// //   color: #fff;
+// // }
+
+// // /* BUTTONS */
+// // .button-row {
+// //   display: flex;
+// //   justify-content: center;
+// //   align-items: center;
+// //   gap: 15px;
+// //   margin: 20px 0;
+// // }
+
+// // button {
+// //   flex: 1;
+// //   max-width: 180px;
+// //   min-width: 140px;
+// //   height: 50px;
+// //   border: none;
+// //   border-radius: 8px;
+// //   font-size: 1rem;
+// //   font-weight: 600;
+// //   cursor: pointer;
+// //   color: #fff;
+// //   background: #007bff;
+// //   transition: 0.3s ease;
+// // }
+
+// // button:hover {
+// //   background: #0056b3;
+// // }
+
+// // /* TASK CARDS */
+// // app-tasks {
+// //   display: grid;
+// //   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+// //   gap: 20px;
+// //   padding: 30px;
+// //   max-width: 1200px;
+// //   margin: 0 auto;
+// // }
+
+// // app-task {
+// //   background: #f8f9fa; /* לבן פשוט */
+// //   color: #000; /* טקסט שחור */
+// //   font-size: 0.95rem;
+// //   font-weight: 500;
+// //   padding: 15px;
+// //   border-radius: 10px;
+// //   border: 1px solid #ccc;
+// //   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+// //   transition: transform 0.2s ease, box-shadow 0.2s ease;
+// // }
+
+// // app-task:hover {
+// //   transform: translateY(-4px);
+// //   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+// // }
+
+// // /* טקסטים בתוך הכרטיס */
+// // app-task * {
+// //   color: inherit;
+// // }
+
+// :host {
+//   display: block;
+//   min-height: 100vh;
+//   direction: rtl;
+//   font-family: Arial, sans-serif;
+//   background: #2c2f44; /* רקע כהה פשוט */
+//   color: #fff;
+//   padding: 0;
+//   margin: 0;
+// }
+
+// /* HEADER */
+// header {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 20px;
+//   background: #3a3f5a;
+// }
+
+// nav .flex-row {
+//   display: flex;
+//   align-items: center;
+//   gap: 15px;
+//   font-size: 16px;
+//   font-weight: 600;
+// }
+
+// nav span {
+//   padding: 6px 12px;
+//   border-radius: 8px;
+//   font-size: 0.95rem;
+//   font-weight: 600;
+//   color: #fff;
+//   background: #444b70;
+// }
+
+// nav span[style*="green"] {
+//   background: #28a745;
+// }
+
+// nav span[style*="red"] {
+//   background: #dc3545;
+// }
+
+// /* BUTTON ROW */
+// .button-row {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 15px;
+//   margin: 20px 0;
+// }
+
+// button {
+//   padding: 10px 20px;
+//   border: none;
+//   border-radius: 8px;
+//   font-size: 1rem;
+//   font-weight: 600;
+//   cursor: pointer;
+//   color: #fff;
+//   background: #007bff;
+//   transition: 0.3s;
+// }
+
+// button:hover {
+//   background: #0056b3;
+// }
+
+// /* TASKS CONTAINER */
+// app-tasks {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+//   gap: 20px;
+//   padding: 30px;
+//   max-width: 1200px;
+//   margin: 0 auto;
+// }
+:host {
+  display: block;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #2c2f44;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #3a3f5a;
+}
+
+nav .flex-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+nav span {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  background: #444b70;
+}
+
+nav span[style*="green"] {
+  background: #28a745;
+}
+
+nav span[style*="red"] {
+  background: #dc3545;
+}

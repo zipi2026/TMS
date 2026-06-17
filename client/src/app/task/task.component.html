@@ -1,0 +1,19 @@
+      <!-- <div class="bigDiv" appHoverHighlight>
+          <h1 class="task" [innerText]="task.taskId"></h1>
+          <h1 class="task" [innerText]="task.name"></h1>
+          <h1 class="task" [innerText]="task.description"></h1>
+          <h1 class="task" [innerText]="task.price"></h1>
+          <h1 class="task" [innerText]="task.date"></h1>
+          <h1 class="task" [innerText]="task.status|hebrew"></h1>
+          <mat-icon [innerText]="task.status|statusIcon"></mat-icon>
+
+      </div> -->
+<div class="bigDiv" appHoverHighlight>
+  <h1 class="task" [innerText]="task.taskId"></h1>
+  <h1 class="task" [innerText]="task.name"></h1>
+  <h1 class="task" [innerText]="task.description"></h1>
+  <h1 class="task" [innerText]="task.price"></h1>
+  <h1 class="task">{{ task.scheduling | date:'dd/MM/yyyy' }}</h1>
+  <h1 class="task" [innerText]="task.status | hebrew"></h1>
+  <mat-icon [innerText]="task.status | statusIcon"></mat-icon>
+</div>

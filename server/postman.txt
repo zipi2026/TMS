@@ -1,0 +1,5 @@
+http://127.0.0.1:3030/auth/check-login?userName=ch&password=1234
+
+http://127.0.0.1:3030/tasks/gettasks
+
+http://localhost:3030/checkConnection/checkconnection

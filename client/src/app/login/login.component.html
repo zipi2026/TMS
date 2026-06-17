@@ -1,0 +1,30 @@
+
+<div class="container">
+    <div class="box">
+        <h2>התחברות</h2>
+        <form [formGroup]="formGroup">
+            <div class="inputDiv">
+                <label for="username" [innerText]="'user name'"></label>
+                <input type="text" id="username" class="input" required formControlName="username"
+                    placeholder="ENTER USER NAME">
+                <span class="error" *ngIf="formGroup.get('username')?.invalid && mouseOverLogin"
+                    [innerText]="errorMassage">
+
+                </span>
+            </div>
+            <div style="height: 20px;"></div>
+            <div class="inputDiv">
+                <label for="password" [innerText]="'password'"></label>
+                <input type="password" id="password" class="input" required formControlName="password"
+                    placeholder="ENTER YOUR PASSWORD">
+                <span class="error" *ngIf="formGroup.get('password')?.invalid && mouseOverLogin"
+                    [innerText]="errorMassage">
+
+                </span>
+            </div>
+            <div (mouseenter)="mouseOverLogin=true" (mouseleave)="mouseOverLogin=false">
+                <button (click)="login()" [disabled]="formGroup.invalid" [innerText]="'כניסה'"></button>
+            </div>
+        </form>
+    </div>
+</div>

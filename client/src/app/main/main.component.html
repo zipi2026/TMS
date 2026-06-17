@@ -1,0 +1,33 @@
+<!-- <header>
+    <nav>
+      <div class="flex-row">
+        <span  *ngIf="isServerAlive === null">בודק מצב שרת...</span>
+        <span  *ngIf="isServerAlive === true" style="color: green;">✅ השרת פעיל</span>
+        <span  *ngIf="isServerAlive === false" style="color: red;">❌ השרת אינו פעיל</span>
+     </div>
+        <!-- <ul>
+         @for(button of buttons;track button){
+         <li>
+            <a class="active"
+            [innerText]="button.name">
+
+            </a>
+         </li>
+         }</ul> -->
+        
+    <!-- </nav>
+</header>
+
+<app-tasks></app-tasks>  -->
+
+<header>
+  <nav>
+    <div class="flex-row">
+      <span *ngIf="isServerAlive === null">בודק מצב שרת...</span>
+      <span *ngIf="isServerAlive === true" style="color: green;">✅ השרת פעיל</span>
+      <span *ngIf="isServerAlive === false" style="color: red;">❌ השרת אינו פעיל</span>
+    </div>
+  </nav>
+</header>
+
+<app-tasks></app-tasks>

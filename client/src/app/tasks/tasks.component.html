@@ -1,0 +1,59 @@
+<!-- 
+<header>
+  <button [innerText]="viewState===theStateEnum.Dashboard?'טבלה':'לוח משימות'" (click)="changeState()"></button>
+    <button id="add" (click)="addTask()">ADD A TASK</button>
+
+<select [(ngModel)]="status">
+        <option  [value]="-1">{{-1 | hebrew}}</option>
+        <option  [value]="0">{{0 | hebrew}}</option>
+        <option  [value]="1">{{1 | hebrew}}</option>
+        <option  [value]="2">{{2 | hebrew}}</option>
+        <option  [value]="3">{{3 | hebrew}}</option>
+  </select>
+
+</header>
+
+
+<section>
+          <!-- <app-task-tooltip [tasksList]="(tasksList$ | async) || []">
+          <div class="box">
+            מידע נוסף על המשימות  
+          </div>
+        </app-task-tooltip> -->
+
+  <!-- <div *ngIf="viewState===theStateEnum.Dashboard">
+    <app-dashboard [taskList]="((taskList$ | async) || []) | filter:status"></app-dashboard>
+  </div>
+
+
+  <div *ngIf="viewState===theStateEnum.Table">
+    <app-table [taskList]="((taskList$ | async) || []) | filter:status"></app-table>
+  </div>
+
+
+
+</section>
+
+ -->
+<header>
+  <button [innerText]="viewState===theStateEnum.Dashboard?'טבלה':'לוח משימות'" (click)="changeState()"></button>
+  <button id="add" (click)="addTask()">ADD A TASK</button>
+
+  <select [(ngModel)]="status">
+    <option [value]="-1">{{-1 | hebrew}}</option>
+    <option [value]="0">{{0 | hebrew}}</option>
+    <option [value]="1">{{1 | hebrew}}</option>
+    <option [value]="2">{{2 | hebrew}}</option>
+    <option [value]="3">{{3 | hebrew}}</option>
+  </select>
+</header>
+
+<section>
+  <div *ngIf="viewState===theStateEnum.Dashboard">
+    <app-dashboard [taskList]="((taskList$ | async) || []) | filter:status"></app-dashboard>
+  </div>
+
+  <div *ngIf="viewState===theStateEnum.Table">
+    <app-table [taskList]="((taskList$ | async) || []) | filter:status"></app-table>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+<form [formGroup]="formGroup">
+    <label for="id" [innerText]=" 'id' "></label>
+      <input type="text" id="id"  formControlName="id">
+    <label for="name" [innerText]="'name'"></label>
+      <input type="text" id="name"  formControlName="name">
+    <label for="description" [innerText]="'description'"></label>
+      <textarea style="display: flex;" type="text" id="description"  formControlName="description"></textarea>
+    <label for="price" [innerText]="'price'"></label>
+      <input type="number" id="price"  formControlName="price">
+
+
+
+  <!-- <mat-form-field appearance="fill" dir="rtl">
+  <mat-label>בחר תאריך יעד</mat-label>
+  <input matInput [matDatepicker]="picker"  formControlName="scheduling">
+  
+
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+</mat-form-field> -->
+
+
+
+      <label>
+    <app-status></app-status>
+    </label>
+    <!-- <label for="status" [innerText]="'status'"></label>
+      <input id="status"  formControlName="status"> -->
+    <!-- <label for="submit" [innerText]="'ADD'"></label>
+      <input id="submit"> -->
+    <!-- <label for="id"></label>
+      <input type="text"> -->
+      <div>
+  <button [disabled]="formGroup.invalid" (click)="addThisTask()" [innerText]="'ADD'" type="submit"></button>
+  <button (click)="cancel()" [innerText]="'CANCEL'"></button>
+  </div>
+</form>

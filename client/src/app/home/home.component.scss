@@ -1,0 +1,1822 @@
+// :host{
+//     img{
+//     width: 1000px;
+//     height: 500px;
+//     }
+//     body{
+//         // size: 100%;
+//         background-color: rgb(97, 148, 168);
+//         width: 1880px;
+//         height: 935px;
+//         text-align: center;
+//         color:rgb(240, 249, 255) ;
+//     }
+//     div{
+//     font-size: 150px;
+//     font-family: 'Aharoni';
+ 
+//     }
+//     button{
+//     background-color: rgb(97, 148, 168);
+//     border: solid,3px,rgb(240, 249, 255);
+//     border-radius: 50%;
+//     width: 300px;
+//     height: 100px;
+//     font-family: 'Aharoni';
+//     font-size: 40px;
+//     color:rgb(240, 249, 255) ;
+//     }
+// }
+
+// :host {
+//   display: block;
+//   min-height: 100vh;
+//   direction: rtl;
+//   font-family: Arial, sans-serif;
+//   overflow: hidden;
+
+//   body {
+//     margin: 0;
+//     padding: 0;
+//   }
+
+//   /* רקע כללי */
+//   background: linear-gradient(135deg, #0f1020, #1a1c3a, #2b2f5c);
+//   background-size: 400% 400%;
+//   animation: bgShift 18s ease infinite;
+
+//   @keyframes bgShift {
+//     0% { background-position: 0% 50%; }
+//     50% { background-position: 100% 50%; }
+//     100% { background-position: 0% 50%; }
+//   }
+
+//   header {
+//     text-align: center;
+//     padding: 30px 10px;
+
+//     div {
+//       font-size: 2.8rem;
+//       font-weight: 800;
+//       color: #ffffff;
+//       letter-spacing: 1px;
+//       text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+//       animation: fadeDown 1.2s ease forwards;
+//     }
+//   }
+
+//   @keyframes fadeDown {
+//     from {
+//       opacity: 0;
+//       transform: translateY(-25px);
+//     }
+//     to {
+//       opacity: 1;
+//       transform: translateY(0);
+//     }
+//   }
+
+//   section {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 25px;
+//     padding: 20px;
+//     text-align: center;
+//   }
+
+//   img {
+//     width: 180px;
+//     height: 180px;
+//     object-fit: cover;
+//     border-radius: 50%;
+//     border: 4px solid rgba(255, 255, 255, 0.15);
+//     box-shadow: 0 0 40px rgba(0, 255, 255, 0.15);
+//     animation: floatImg 6s ease-in-out infinite;
+//   }
+
+//   @keyframes floatImg {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-12px); }
+//   }
+
+//   button {
+//     position: relative;
+//     padding: 14px 28px;
+//     border: none;
+//     border-radius: 12px;
+//     font-size: 1rem;
+//     font-weight: 700;
+//     cursor: pointer;
+//     color: #fff;
+//     background: linear-gradient(135deg, #6a5af9, #00d4ff);
+//     box-shadow: 0 10px 30px rgba(0, 212, 255, 0.25);
+//     transition: all 0.3s ease;
+//     overflow: hidden;
+
+//     &:hover {
+//       transform: translateY(-3px) scale(1.05);
+//       box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+//     }
+
+//     &:active {
+//       transform: scale(0.98);
+//     }
+
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       top: 0;
+//       left: -100%;
+//       width: 100%;
+//       height: 100%;
+//       background: rgba(255, 255, 255, 0.2);
+//       transform: skewX(-25deg);
+//     }
+
+//     &:hover::before {
+//       animation: shine 0.8s ease forwards;
+//     }
+//   }
+
+//   @keyframes shine {
+//     0% { left: -100%; }
+//     100% { left: 200%; }
+//   }
+
+//   span {
+//     display: inline-block;
+//     width: 20px;
+//   }
+
+//   footer {
+//     margin-top: 40px;
+//     height: 60px;
+//     background: rgba(255, 255, 255, 0.05);
+//     backdrop-filter: blur(10px);
+//   }
+
+//   /* אפקט חלקיקים רקע */
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.08) 0%, transparent 40%),
+//                       radial-gradient(circle at 80% 30%, rgba(0,255,255,0.06) 0%, transparent 45%),
+//                       radial-gradient(circle at 50% 80%, rgba(255,0,200,0.05) 0%, transparent 50%);
+//     pointer-events: none;
+//   }
+// }
+
+
+// :host {
+//   display: block;
+//   min-height: 100vh;
+//   direction: rtl;
+//   font-family: Arial, sans-serif;
+//   overflow: hidden;
+//   position: relative;
+
+//   background: linear-gradient(135deg, #0f1020, #1a1c3a, #2b2f5c);
+//   background-size: 400% 400%;
+//   animation: bgShift 10s ease infinite;
+
+//   @keyframes bgShift {
+//     0% { background-position: 0% 50%; }
+//     50% { background-position: 100% 50%; }
+//     100% { background-position: 0% 50%; }
+//   }
+
+//   header {
+//     text-align: center;
+//     padding: 30px 10px;
+
+//     div {
+//       font-size: 2.8rem;
+//       font-weight: 800;
+//       color: #ffffff;
+//       letter-spacing: 1px;
+//       text-shadow: 0 0 25px rgba(0, 255, 255, 0.35);
+//       animation: titlePulse 2.5s ease-in-out infinite;
+//     }
+//   }
+
+//   @keyframes titlePulse {
+//     0%, 100% { transform: scale(1); letter-spacing: 1px; }
+//     50% { transform: scale(1.08); letter-spacing: 3px; }
+//   }
+
+//   section {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 30px;
+//     padding: 20px;
+//     text-align: center;
+//     animation: sectionDrift 6s ease-in-out infinite;
+//   }
+
+//   @keyframes sectionDrift {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-20px); }
+//   }
+
+//   img {
+//     width: 360px;   // כפול 2
+//     height: 360px;  // כפול 2
+//     object-fit: cover;
+//     border-radius: 50%;
+//     border: 5px solid rgba(255, 255, 255, 0.2);
+//     box-shadow: 0 0 60px rgba(0, 255, 255, 0.25);
+//     animation: imgMotion 4s ease-in-out infinite, imgRotate 12s linear infinite;
+//   }
+
+//   @keyframes imgMotion {
+//     0%, 100% { transform: translateY(0) scale(1); }
+//     50% { transform: translateY(-25px) scale(1.05); }
+//   }
+
+//   @keyframes imgRotate {
+//     0% { transform: rotate(0deg); }
+//     100% { transform: rotate(360deg); }
+//   }
+
+//   button {
+//     position: relative;
+//     padding: 16px 32px;
+//     border: none;
+//     border-radius: 14px;
+//     font-size: 1.05rem;
+//     font-weight: 800;
+//     cursor: pointer;
+//     color: #fff;
+//     background: linear-gradient(135deg, #6a5af9, #00d4ff);
+//     box-shadow: 0 12px 35px rgba(0, 212, 255, 0.25);
+//     transition: 0.3s ease;
+//     overflow: hidden;
+//     animation: buttonFloat 3s ease-in-out infinite;
+
+//     &:hover {
+//       transform: scale(1.1) rotate(-1deg);
+//       box-shadow: 0 18px 50px rgba(0, 212, 255, 0.4);
+//     }
+
+//     &:active {
+//       transform: scale(0.95);
+//     }
+
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       top: 0;
+//       left: -120%;
+//       width: 120%;
+//       height: 100%;
+//       background: rgba(255, 255, 255, 0.25);
+//       transform: skewX(-25deg);
+//     }
+
+//     &:hover::before {
+//       animation: shine 0.8s ease forwards;
+//     }
+//   }
+
+//   @keyframes buttonFloat {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-10px); }
+//   }
+
+//   @keyframes shine {
+//     0% { left: -120%; }
+//     100% { left: 220%; }
+//   }
+
+//   span {
+//     display: inline-block;
+//     width: 20px;
+//   }
+
+//   footer {
+//     margin-top: 40px;
+//     height: 70px;
+//     background: rgba(255, 255, 255, 0.06);
+//     backdrop-filter: blur(12px);
+//     animation: footerWave 5s ease-in-out infinite;
+//   }
+
+//   @keyframes footerWave {
+//     0%, 100% { transform: translateX(0); }
+//     50% { transform: translateX(15px); }
+//   }
+
+//   /* חלקיקים דינמיים ברקע */
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     background-image:
+//       radial-gradient(circle at 20% 20%, rgba(255,255,255,0.1) 0%, transparent 40%),
+//       radial-gradient(circle at 80% 30%, rgba(0,255,255,0.08) 0%, transparent 45%),
+//       radial-gradient(circle at 50% 80%, rgba(255,0,200,0.06) 0%, transparent 50%);
+//     animation: particlesMove 8s linear infinite;
+//     pointer-events: none;
+//   }
+
+//   @keyframes particlesMove {
+//     0% { transform: translate(0,0) scale(1); }
+//     50% { transform: translate(20px,-20px) scale(1.05); }
+//     100% { transform: translate(0,0) scale(1); }
+//   }
+// }
+
+
+// :host {
+//   display: block;
+//   min-height: 100vh;
+//   direction: rtl;
+//   font-family: Arial, sans-serif;
+//   overflow: hidden;
+//   position: relative;
+
+//   background: linear-gradient(135deg, #0f1020, #1a1c3a, #2b2f5c);
+//   background-size: 400% 400%;
+//   animation: bgShift 12s ease infinite;
+
+//   @keyframes bgShift {
+//     0% { background-position: 0% 50%; }
+//     50% { background-position: 100% 50%; }
+//     100% { background-position: 0% 50%; }
+//   }
+
+//   header {
+//     text-align: center;
+//     padding: 30px 10px;
+
+//     div {
+//       font-size: 3rem;
+//       font-weight: 800;
+//       color: #ffffff;
+//       letter-spacing: 1px;
+//       text-shadow: 0 0 35px rgba(0, 255, 255, 0.4);
+//       animation: titleMorph 3s ease-in-out infinite;
+//     }
+//   }
+
+//   @keyframes titleMorph {
+//     0% { transform: rotateX(0deg) rotateY(0deg) scale(1); color: #ffffff; }
+//     25% { transform: rotateX(15deg) rotateY(10deg) scale(1.1); color: #00ffff; }
+//     50% { transform: rotateX(-10deg) rotateY(-15deg) scale(1.15); color: #ff00ff; }
+//     75% { transform: rotateX(10deg) rotateY(15deg) scale(1.1); color: #00ffff; }
+//     100% { transform: rotateX(0deg) rotateY(0deg) scale(1); color: #ffffff; }
+//   }
+
+//   section {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 30px;
+//     padding: 20px;
+//     text-align: center;
+//     animation: sectionDrift 6s ease-in-out infinite;
+//   }
+
+//   @keyframes sectionDrift {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-20px); }
+//   }
+
+//   img {
+//     width: 480px;   // הגדלה משמעותית
+//     height: 480px;  // הגדלה משמעותית
+//     object-fit: cover;
+//     border-radius: 50%;
+//     border: 5px solid rgba(255, 255, 255, 0.25);
+//     box-shadow: 0 0 80px rgba(0, 255, 255, 0.35);
+//     animation: imgFloat 5s ease-in-out infinite;
+//   }
+
+//   @keyframes imgFloat {
+//     0%, 100% { transform: translateY(0) scale(1); }
+//     25% { transform: translateY(-25px) scale(1.05); }
+//     50% { transform: translateY(-15px) scale(1.08); }
+//     75% { transform: translateY(-30px) scale(1.05); }
+//   }
+
+//   button {
+//     position: relative;
+//     padding: 16px 32px;
+//     border: none;
+//     border-radius: 14px;
+//     font-size: 1.05rem;
+//     font-weight: 800;
+//     cursor: pointer;
+//     color: #fff;
+//     background: linear-gradient(135deg, #6a5af9, #00d4ff);
+//     box-shadow: 0 12px 40px rgba(0, 212, 255, 0.3);
+//     transition: 0.3s ease;
+//     overflow: hidden;
+//     animation: buttonFloat 3s ease-in-out infinite;
+
+//     &:hover {
+//       transform: scale(1.1) rotate(-1deg);
+//       box-shadow: 0 18px 50px rgba(0, 212, 255, 0.45);
+//     }
+
+//     &:active {
+//       transform: scale(0.95);
+//     }
+
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       top: 0;
+//       left: -120%;
+//       width: 120%;
+//       height: 100%;
+//       background: rgba(255, 255, 255, 0.25);
+//       transform: skewX(-25deg);
+//     }
+
+//     &:hover::before {
+//       animation: shine 0.8s ease forwards;
+//     }
+//   }
+
+//   @keyframes buttonFloat {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-12px); }
+//   }
+
+//   @keyframes shine {
+//     0% { left: -120%; }
+//     100% { left: 220%; }
+//   }
+
+//   span {
+//     display: inline-block;
+//     width: 20px;
+//   }
+
+//   footer {
+//     margin-top: 40px;
+//     height: 70px;
+//     background: rgba(255, 255, 255, 0.06);
+//     backdrop-filter: blur(12px);
+//     animation: footerWave 5s ease-in-out infinite;
+//   }
+
+//   @keyframes footerWave {
+//     0%, 100% { transform: translateX(0); }
+//     50% { transform: translateX(15px); }
+//   }
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     background-image:
+//       radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12) 0%, transparent 40%),
+//       radial-gradient(circle at 80% 30%, rgba(0,255,255,0.1) 0%, transparent 45%),
+//       radial-gradient(circle at 50% 80%, rgba(255,0,200,0.08) 0%, transparent 50%);
+//     animation: particlesMove 8s linear infinite;
+//     pointer-events: none;
+//   }
+
+//   @keyframes particlesMove {
+//     0% { transform: translate(0,0) scale(1); }
+//     50% { transform: translate(25px,-25px) scale(1.05); }
+//     100% { transform: translate(0,0) scale(1); }
+//   }
+  
+// }
+// :host {
+//   display: block;
+//   min-height: 100vh;
+//   direction: rtl;
+//   font-family: Arial, sans-serif;
+//   overflow: hidden;
+//   position: relative;
+
+//   background: linear-gradient(135deg, #0f1020, #1a1c3a, #2b2f5c);
+//   background-size: 400% 400%;
+//   animation: bgShift 12s ease infinite;
+
+//   @keyframes bgShift {
+//     0% { background-position: 0% 50%; }
+//     50% { background-position: 100% 50%; }
+//     100% { background-position: 0% 50%; }
+//   }
+
+//   header {
+//     text-align: center;
+//     padding: 30px 10px;
+
+//     div {
+//       font-size: 3rem;
+//       font-weight: 800;
+//       color: #ffffff;
+//       letter-spacing: 1px;
+//       text-shadow: 0 0 35px rgba(0, 255, 255, 0.4);
+//       animation: titleMorph 3s ease-in-out infinite;
+//     }
+//   }
+
+//   @keyframes titleMorph {
+//     0% { transform: rotateX(0deg) rotateY(0deg) scale(1); color: #ffffff; }
+//     25% { transform: rotateX(15deg) rotateY(10deg) scale(1.1); color: #00ffff; }
+//     50% { transform: rotateX(-10deg) rotateY(-15deg) scale(1.15); color: #ff00ff; }
+//     75% { transform: rotateX(10deg) rotateY(15deg) scale(1.1); color: #00ffff; }
+//     100% { transform: rotateX(0deg) rotateY(0deg) scale(1); color: #ffffff; }
+//   }
+
+//   section {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 30px;
+//     padding: 20px;
+//     text-align: center;
+//     animation: sectionDrift 6s ease-in-out infinite;
+//   }
+
+//   @keyframes sectionDrift {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-20px); }
+//   }
+
+//   img {
+//     width: 480px;
+//     height: 480px;
+//     object-fit: cover;
+//     border-radius: 50%;
+//     border: 5px solid rgba(255, 255, 255, 0.25);
+//     box-shadow: 0 0 80px rgba(0, 255, 255, 0.35);
+//     animation: imgFloat 5s ease-in-out infinite;
+//   }
+
+//   @keyframes imgFloat {
+//     0%, 100% { transform: translateY(0) scale(1); }
+//     25% { transform: translateY(-25px) scale(1.05); }
+//     50% { transform: translateY(-15px) scale(1.08); }
+//     75% { transform: translateY(-30px) scale(1.05); }
+//   }
+
+//   /* 🔥 חדש: שורת כפתורים */
+//   .button-row {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 20px;
+//     width: 100%;
+//   }
+
+//   button {
+//     flex: 1;                 // כולם באותו גודל
+//     max-width: 180px;        // אחידות רוחב
+//     min-width: 180px;        // מונע שינוי גודל
+//     height: 55px;            // אחידות גובה
+
+//     position: relative;
+//     border: none;
+//     border-radius: 14px;
+//     font-size: 1.05rem;
+//     font-weight: 800;
+//     cursor: pointer;
+//     color: #fff;
+//     background: linear-gradient(135deg, #6a5af9, #00d4ff);
+//     box-shadow: 0 12px 40px rgba(0, 212, 255, 0.3);
+//     transition: 0.3s ease;
+//     overflow: hidden;
+//     animation: buttonFloat 3s ease-in-out infinite;
+
+//     &:hover {
+//       transform: scale(1.08);
+//       box-shadow: 0 18px 50px rgba(0, 212, 255, 0.45);
+//     }
+
+//     &:active {
+//       transform: scale(0.95);
+//     }
+
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       top: 0;
+//       left: -120%;
+//       width: 120%;
+//       height: 100%;
+//       background: rgba(255, 255, 255, 0.25);
+//       transform: skewX(-25deg);
+//     }
+
+//     &:hover::before {
+//       animation: shine 0.8s ease forwards;
+//     }
+//   }
+
+//   @keyframes buttonFloat {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-12px); }
+//   }
+
+//   @keyframes shine {
+//     0% { left: -120%; }
+//     100% { left: 220%; }
+//   }
+
+//   span {
+//     display: none; // לא צריך יותר רווחים ידניים
+//   }
+
+//   footer {
+//     margin-top: 40px;
+//     height: 70px;
+//     background: rgba(255, 255, 255, 0.06);
+//     backdrop-filter: blur(12px);
+//     animation: footerWave 5s ease-in-out infinite;
+//   }
+
+//   @keyframes footerWave {
+//     0%, 100% { transform: translateX(0); }
+//     50% { transform: translateX(15px); }
+//   }
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     background-image:
+//       radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12) 0%, transparent 40%),
+//       radial-gradient(circle at 80% 30%, rgba(0,255,255,0.1) 0%, transparent 45%),
+//       radial-gradient(circle at 50% 80%, rgba(255,0,200,0.08) 0%, transparent 50%);
+//     animation: particlesMove 8s linear infinite;
+//     pointer-events: none;
+//   }
+
+//   @keyframes particlesMove {
+//     0% { transform: translate(0,0) scale(1); }
+//     50% { transform: translate(25px,-25px) scale(1.05); }
+//     100% { transform: translate(0,0) scale(1); }
+//   }
+// }
+
+// :host {
+//   display: block;
+//   min-height: 100vh;
+//   direction: rtl;
+//   font-family: Arial, sans-serif;
+//   overflow: hidden;
+//   position: relative;
+
+//   background: linear-gradient(135deg, #0f1020, #1a1c3a, #2b2f5c);
+//   background-size: 300% 300%;
+//   animation: bgShift 20s ease infinite;
+
+//   @keyframes bgShift {
+//     0% { background-position: 0% 50%; }
+//     50% { background-position: 100% 50%; }
+//     100% { background-position: 0% 50%; }
+//   }
+
+//   header {
+//     text-align: center;
+//     padding: 30px 10px;
+
+//     div {
+//       font-size: 3rem;
+//       font-weight: 800;
+//       color: #ffffff;
+//       letter-spacing: 1px;
+//       text-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+//       animation: titleFade 4s ease-in-out infinite;
+//     }
+//   }
+
+//   @keyframes titleFade {
+//     0%, 100% {
+//       opacity: 0.85;
+//       transform: translateY(0px);
+//     }
+//     50% {
+//       opacity: 1;
+//       transform: translateY(-6px);
+//     }
+//   }
+
+//   section {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 25px;
+//     padding: 20px;
+//     text-align: center;
+//   }
+
+//   img {
+//     width: 420px;
+//     height: 420px;
+//     object-fit: cover;
+//     border-radius: 50%;
+//     border: 4px solid rgba(255, 255, 255, 0.15);
+//     box-shadow: 0 0 40px rgba(0, 255, 255, 0.15);
+//     animation: imgFloatSoft 6s ease-in-out infinite;
+//   }
+
+//   @keyframes imgFloatSoft {
+//     0%, 100% {
+//       transform: translateY(0px) scale(1);
+//     }
+//     50% {
+//       transform: translateY(-10px) scale(1.02);
+//     }
+//   }
+
+//   .button-row {
+//     display: flex;
+//     gap: 16px;
+//     justify-content: center;
+//     align-items: center;
+//     flex-wrap: wrap;
+//   }
+
+//   button {
+//     min-width: 160px;
+//     height: 50px;
+
+//     border: none;
+//     border-radius: 12px;
+//     font-size: 1rem;
+//     font-weight: 700;
+//     cursor: pointer;
+//     color: #fff;
+
+//     background: linear-gradient(135deg, #5a6af9, #3cc7ff);
+//     box-shadow: 0 8px 25px rgba(0, 212, 255, 0.18);
+
+//     transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+//     &:hover {
+//       transform: translateY(-3px);
+//       box-shadow: 0 12px 30px rgba(0, 212, 255, 0.25);
+//     }
+
+//     &:active {
+//       transform: scale(0.98);
+//     }
+//   }
+
+//   footer {
+//     margin-top: 40px;
+//     height: 60px;
+//     background: rgba(255, 255, 255, 0.04);
+//     backdrop-filter: blur(10px);
+//   }
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     background:
+//       radial-gradient(circle at 20% 20%, rgba(255,255,255,0.06), transparent 40%),
+//       radial-gradient(circle at 80% 30%, rgba(0,255,255,0.05), transparent 45%);
+//     pointer-events: none;
+//     animation: softMove 25s ease-in-out infinite;
+//   }
+
+//   @keyframes softMove {
+//     0%, 100% { transform: translate(0,0); }
+//     50% { transform: translate(10px,-10px); }
+//   }
+// }
+
+// :host {
+//   display: block;
+//   min-height: 100vh;
+//   direction: rtl;
+//   font-family: Arial, sans-serif;
+//   overflow: hidden;
+//   position: relative;
+
+//   section {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 25px;
+//     padding: 20px;
+//     text-align: center;
+//   }
+
+//   header div {
+//     font-size: 3rem;
+//     font-weight: 800;
+//     color: #fff;
+//     letter-spacing: 1px;
+//     text-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+
+//     /* אנימציית כניסה חזקה ואז רגועה */
+//     animation: titleEntrance 2s ease-out forwards, titleCalm 4s ease-in-out 2s infinite;
+//   }
+
+//   @keyframes titleEntrance {
+//     0% { transform: translateY(-100px) scale(0.8); opacity: 0; }
+//     100% { transform: translateY(0) scale(1); opacity: 1; }
+//   }
+
+//   @keyframes titleCalm {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-6px); }
+//   }
+
+//   img {
+//     width: 420px;
+//     height: 420px;
+//     border-radius: 50%;
+//     border: 4px solid rgba(255, 255, 255, 0.15);
+//     box-shadow: 0 0 40px rgba(0, 255, 255, 0.15);
+
+//     /* כניסה חזקה ואז רגועה */
+//     animation: imgEntrance 2s ease-out forwards, imgCalm 6s ease-in-out 2s infinite;
+//   }
+
+//   @keyframes imgEntrance {
+//     0% { transform: translateY(-200px) scale(0.7); opacity: 0; }
+//     100% { transform: translateY(0) scale(1); opacity: 1; }
+//   }
+
+//   @keyframes imgCalm {
+//     0%, 100% { transform: translateY(0) scale(1); }
+//     50% { transform: translateY(-10px) scale(1.02); }
+//   }
+
+//   .button-row {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 16px;
+//     flex-wrap: wrap;
+//   }
+
+//   button {
+//     min-width: 160px;
+//     height: 50px;
+//     border: none;
+//     border-radius: 12px;
+//     font-size: 1rem;
+//     font-weight: 700;
+//     cursor: pointer;
+//     color: #fff;
+//     background: linear-gradient(135deg, #5a6af9, #3cc7ff);
+//     box-shadow: 0 8px 25px rgba(0, 212, 255, 0.18);
+//     transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+//     &:hover {
+//       transform: translateY(-3px);
+//       box-shadow: 0 12px 30px rgba(0, 212, 255, 0.25);
+//     }
+
+//     &:active {
+//       transform: scale(0.98);
+//     }
+//   }
+// }
+
+// :host {
+//   display: block;
+//   min-height: 100vh;
+//   direction: rtl;
+//   font-family: Arial, sans-serif;
+//   overflow: hidden;
+//   position: relative;
+
+//   /* רקע חזק יותר כמו הקודם */
+//   background: linear-gradient(135deg, #0f1020, #1a1c3a, #2b2f5c);
+//   background-size: 400% 400%;
+//   animation: bgShift 12s ease infinite;
+
+//   @keyframes bgShift {
+//     0% { background-position: 0% 50%; }
+//     50% { background-position: 100% 50%; }
+//     100% { background-position: 0% 50%; }
+//   }
+
+//   header div {
+//     font-size: 3rem;
+//     font-weight: 800;
+//     color: #ffffff;
+//     letter-spacing: 1px;
+//     text-shadow: 0 0 35px rgba(0, 255, 255, 0.4);
+
+//     animation: titleCalm 4s ease-in-out infinite;
+//   }
+
+//   @keyframes titleCalm {
+//     0%, 100% {
+//       transform: translateY(0);
+//       color: #ffffff;
+//       text-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
+//     }
+//     50% {
+//       transform: translateY(-6px);
+//       color: #00ffff;
+//       text-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+//     }
+//   }
+
+//   section {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 25px;
+//     padding: 20px;
+//     text-align: center;
+//   }
+
+//   img {
+//     width: 420px;
+//     height: 420px;
+//     border-radius: 50%;
+//     object-fit: cover;
+
+//     border: 4px solid rgba(0, 255, 255, 0.25);
+//     box-shadow: 0 0 60px rgba(0, 255, 255, 0.35);
+
+//     animation: imgCalm 6s ease-in-out infinite;
+//   }
+
+//   @keyframes imgCalm {
+//     0%, 100% {
+//       transform: translateY(0);
+//       box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+//     }
+//     50% {
+//       transform: translateY(-10px);
+//       box-shadow: 0 0 80px rgba(255, 0, 255, 0.25);
+//     }
+//   }
+
+//   .button-row {
+//     display: flex;
+//     gap: 16px;
+//     justify-content: center;
+//     align-items: center;
+//     flex-wrap: wrap;
+//   }
+
+//   button {
+//     min-width: 160px;
+//     height: 50px;
+
+//     border: none;
+//     border-radius: 12px;
+//     font-size: 1rem;
+//     font-weight: 700;
+//     cursor: pointer;
+//     color: #fff;
+
+//     /* החזרת צבעים זוהרים */
+//     background: linear-gradient(135deg, #6a5af9, #00d4ff);
+//     box-shadow: 0 10px 30px rgba(0, 212, 255, 0.25);
+
+//     transition: all 0.3s ease;
+
+//     &:hover {
+//       transform: translateY(-3px);
+//       box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+//     }
+
+//     &:active {
+//       transform: scale(0.98);
+//     }
+//   }
+
+//   footer {
+//     margin-top: 40px;
+//     height: 60px;
+//     background: rgba(255, 255, 255, 0.05);
+//     backdrop-filter: blur(10px);
+//   }
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+
+//     background-image:
+//       radial-gradient(circle at 20% 20%, rgba(0,255,255,0.12), transparent 40%),
+//       radial-gradient(circle at 80% 30%, rgba(0,212,255,0.10), transparent 45%),
+//       radial-gradient(circle at 50% 80%, rgba(255,0,255,0.08), transparent 50%);
+
+//     animation: softMove 20s ease-in-out infinite;
+//     pointer-events: none;
+//   }
+
+//   @keyframes softMove {
+//     0%, 100% { transform: translate(0,0); }
+//     50% { transform: translate(10px,-10px); }
+//   }
+// }
+
+// :host {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;  // מרכז אנכי
+//   align-items: center;      // מרכז אופקי
+//   min-height: 100vh;
+//   direction: rtl;
+//   font-family: Arial, sans-serif;
+//   overflow: hidden;
+//   position: relative;
+
+//   background: linear-gradient(135deg, #0f1020, #1a1c3a, #2b2f5c);
+//   background-size: 400% 400%;
+//   animation: bgShift 12s ease infinite;
+
+//   @keyframes bgShift {
+//     0% { background-position: 0% 50%; }
+//     50% { background-position: 100% 50%; }
+//     100% { background-position: 0% 50%; }
+//   }
+
+//   header {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+
+//     div {
+//       font-size: 3rem;
+//       font-weight: 800;
+//       color: #ffffff;
+//       text-shadow: 0 0 35px rgba(0, 255, 255, 0.4);
+//       animation: titleCalm 4s ease-in-out infinite;
+//     }
+//   }
+
+//   @keyframes titleCalm {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-6px); }
+//   }
+
+//   section {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 25px;
+//     text-align: center;
+//   }
+
+//   img {
+//     width: 420px;
+//     height: 420px;
+//     border-radius: 50%;
+//     object-fit: cover;
+
+//     border: 4px solid rgba(0, 255, 255, 0.25);
+//     box-shadow: 0 0 60px rgba(0, 255, 255, 0.35);
+
+//     animation: imgFloat 6s ease-in-out infinite;
+//   }
+
+//   @keyframes imgFloat {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-10px); }
+//   }
+
+//   .button-row {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 16px;
+//     flex-wrap: wrap;
+//   }
+
+//   button {
+//     min-width: 160px;
+//     height: 50px;
+
+//     border: none;
+//     border-radius: 12px;
+//     font-size: 1rem;
+//     font-weight: 700;
+//     cursor: pointer;
+//     color: #fff;
+
+//     background: linear-gradient(135deg, #6a5af9, #00d4ff);
+//     box-shadow: 0 10px 30px rgba(0, 212, 255, 0.25);
+
+//     transition: all 0.3s ease;
+
+//     &:hover {
+//       transform: translateY(-3px);
+//       box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+//     }
+//   }
+
+//   footer {
+//     margin-top: 20px;
+//     height: 60px;
+//     width: 100%;
+//     background: rgba(255, 255, 255, 0.05);
+//     backdrop-filter: blur(10px);
+//   }
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     background:
+//       radial-gradient(circle at 20% 20%, rgba(0,255,255,0.12), transparent 40%),
+//       radial-gradient(circle at 80% 30%, rgba(0,212,255,0.10), transparent 45%),
+//       radial-gradient(circle at 50% 80%, rgba(255,0,255,0.08), transparent 50%);
+//     animation: softMove 20s ease-in-out infinite;
+//     pointer-events: none;
+//   }
+
+//   @keyframes softMove {
+//     0%, 100% { transform: translate(0,0); }
+//     50% { transform: translate(10px,-10px); }
+//   }
+// }
+
+// :host {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   min-height: 100vh;
+//   direction: rtl;
+//   font-family: Arial, sans-serif;
+//   overflow: hidden;
+//   position: relative;
+
+//   background: linear-gradient(135deg, #0f1020, #1a1c3a, #2b2f5c);
+//   background-size: 400% 400%;
+//   animation: bgShift 12s ease infinite;
+
+//   @keyframes bgShift {
+//     0% { background-position: 0% 50%; }
+//     50% { background-position: 100% 50%; }
+//     100% { background-position: 0% 50%; }
+//   }
+
+//   header div {
+//     font-size: 3rem;
+//     font-weight: 800;
+//     color: #ffffff;
+
+//     /* כניסה חזקה + מעבר לרגוע */
+//     animation: titleIntro 1.2s cubic-bezier(.2,.9,.2,1) forwards,
+//                titleCalm 4s ease-in-out 1.2s infinite;
+//   }
+
+//   @keyframes titleIntro {
+//     0% {
+//       transform: translateY(-200px) scale(0.6) rotateX(40deg);
+//       opacity: 0;
+//     }
+//     100% {
+//       transform: translateY(0) scale(1) rotateX(0deg);
+//       opacity: 1;
+//     }
+//   }
+
+//   @keyframes titleCalm {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-6px); }
+//   }
+
+//   section {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 25px;
+//     text-align: center;
+//   }
+
+//   img {
+//     width: 420px;
+//     height: 420px;
+//     border-radius: 50%;
+//     object-fit: cover;
+
+//     border: 4px solid rgba(0, 255, 255, 0.25);
+//     box-shadow: 0 0 60px rgba(0, 255, 255, 0.35);
+
+//     /* כניסה חזקה + מעבר לרגוע */
+//     animation: imgIntro 1.2s cubic-bezier(.2,.9,.2,1) forwards,
+//                imgCalm 6s ease-in-out 1.2s infinite;
+//   }
+
+//   @keyframes imgIntro {
+//     0% {
+//       transform: translateY(-300px) scale(0.4);
+//       opacity: 0;
+//       filter: blur(10px);
+//     }
+//     100% {
+//       transform: translateY(0) scale(1);
+//       opacity: 1;
+//       filter: blur(0);
+//     }
+//   }
+
+//   @keyframes imgCalm {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-10px); }
+//   }
+
+//   .button-row {
+//     display: flex;
+//     gap: 16px;
+//     justify-content: center;
+//     align-items: center;
+//     flex-wrap: wrap;
+//   }
+
+//   button {
+//     min-width: 160px;
+//     height: 50px;
+//     border: none;
+//     border-radius: 12px;
+//     font-size: 1rem;
+//     font-weight: 700;
+//     cursor: pointer;
+//     color: #fff;
+
+//     background: linear-gradient(135deg, #6a5af9, #00d4ff);
+//     box-shadow: 0 10px 30px rgba(0, 212, 255, 0.25);
+
+//     animation: btnIntro 1.2s ease-out forwards,
+//                btnCalm 5s ease-in-out 1.2s infinite;
+//   }
+
+//   @keyframes btnIntro {
+//     0% {
+//       transform: translateY(200px) scale(0.5);
+//       opacity: 0;
+//     }
+//     100% {
+//       transform: translateY(0) scale(1);
+//       opacity: 1;
+//     }
+//   }
+
+//   @keyframes btnCalm {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-4px); }
+//   }
+// }
+
+// :host {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   min-height: 100vh;
+//   direction: rtl;
+//   font-family: Arial, sans-serif;
+//   overflow: hidden;
+//   position: relative;
+
+//   background: linear-gradient(135deg, #0f1020, #1a1c3a, #2b2f5c);
+//   background-size: 400% 400%;
+//   animation: bgShift 12s ease infinite;
+
+//   @keyframes bgShift {
+//     0% { background-position: 0% 50%; }
+//     50% { background-position: 100% 50%; }
+//     100% { background-position: 0% 50%; }
+//   }
+
+//   header div {
+//     font-size: 3rem;
+//     font-weight: 800;
+//     color: #ffffff;
+//     letter-spacing: 1px;
+//     text-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+//     animation: titleCalm 4s ease-in-out infinite;
+//   }
+
+//   @keyframes titleCalm {
+//     0%, 100% { transform: translateY(0); }
+//     25% { transform: translateY(-4px); }
+//     50% { transform: translateY(-8px); }
+//     75% { transform: translateY(-4px); }
+//   }
+
+//   section {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 30px;
+//     padding: 20px;
+//     text-align: center;
+//   }
+
+//   img {
+//     width: 480px;
+//     height: 480px;
+//     object-fit: cover;
+//     border-radius: 50%;
+//     border: 5px solid rgba(255, 255, 255, 0.25);
+//     box-shadow: 0 0 80px rgba(0, 255, 255, 0.35);
+//     animation: imgFloat 6s ease-in-out infinite;
+//   }
+
+//   @keyframes imgFloat {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-12px); }
+//   }
+
+//   /* 🔥 שורת כפתורים */
+//   .button-row {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 20px;
+//     width: 100%;
+//   }
+
+//   button {
+//     flex: 1;
+//     max-width: 180px;
+//     min-width: 180px;
+//     height: 50px;
+//     border: none;
+//     border-radius: 12px;
+//     font-size: 1rem;
+//     font-weight: 700;
+//     cursor: pointer;
+//     color: #fff;
+
+//     /* סגנון חדש */
+//     background: linear-gradient(145deg, #5c5ce0, #00d4ff);
+//     box-shadow: 0 6px 20px rgba(0, 212, 255, 0.25);
+//     transition: all 0.3s ease;
+
+//     &:hover {
+//       transform: translateY(-2px) scale(1.05);
+//       box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+//     }
+
+//     &:active {
+//       transform: translateY(0) scale(0.98);
+//       box-shadow: 0 6px 20px rgba(0, 212, 255, 0.25);
+//     }
+//   }
+
+//   footer {
+//     margin-top: 40px;
+//     height: 70px;
+//     background: rgba(255, 255, 255, 0.06);
+//     backdrop-filter: blur(12px);
+//     animation: footerWave 5s ease-in-out infinite;
+//   }
+
+//   @keyframes footerWave {
+//     0%, 100% { transform: translateX(0); }
+//     50% { transform: translateX(15px); }
+//   }
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     background-image:
+//       radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12) 0%, transparent 40%),
+//       radial-gradient(circle at 80% 30%, rgba(0,255,255,0.1) 0%, transparent 45%),
+//       radial-gradient(circle at 50% 80%, rgba(255,0,200,0.08) 0%, transparent 50%);
+//     animation: particlesMove 8s linear infinite;
+//     pointer-events: none;
+//   }
+
+//   @keyframes particlesMove {
+//     0% { transform: translate(0,0) scale(1); }
+//     50% { transform: translate(25px,-25px) scale(1.05); }
+//     100% { transform: translate(0,0) scale(1); }
+//   }
+// // }
+// :host {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;  // מרכז אנכי בלבד
+//   align-items: center;      // שמירה על מרכז אופקי טבעי
+//   min-height: 100vh;
+//   direction: rtl;
+//   font-family: Arial, sans-serif;
+//   overflow: hidden;
+//   position: relative;
+
+//   background: linear-gradient(135deg, #0f1020, #1a1c3a, #2b2f5c);
+//   background-size: 400% 400%;
+//   animation: bgShift 12s ease infinite;
+
+//   @keyframes bgShift {
+//     0% { background-position: 0% 50%; }
+//     50% { background-position: 100% 50%; }
+//     100% { background-position: 0% 50%; }
+//   }
+
+//   /* 🔥 כותרת במרכז אנכי בלבד */
+//   header {
+//     width: 100%;
+//     text-align: center;
+//   }
+
+//   header div {
+//     font-size: 3rem;
+//     font-weight: 800;
+//     color: #ffffff;
+//     text-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+//   }
+
+//   section {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 25px;
+//     text-align: center;
+//   }
+
+//   img {
+//     width: 420px;
+//     height: 420px;
+//     border-radius: 50%;
+//     object-fit: cover;
+//     border: 4px solid rgba(255, 255, 255, 0.2);
+//     box-shadow: 0 0 60px rgba(0, 255, 255, 0.25);
+//   }
+
+//   /* 🔥 כפתורים - STYLE חדש לגמרי */
+//   .button-row {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 20px;
+//   }
+
+//   button {
+//     min-width: 160px;
+//     height: 50px;
+//     border: 2px solid rgba(255, 255, 255, 0.3);
+//     border-radius: 25px;
+//     background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,255,255,0.05));
+//     color: #ffffff;
+//     font-size: 1rem;
+//     font-weight: 700;
+//     cursor: pointer;
+//     transition: all 0.35s ease;
+//     position: relative;
+//     overflow: hidden;
+
+//     &:hover {
+//       background: linear-gradient(135deg, rgba(0,255,255,0.2), rgba(0,255,255,0.1));
+//       border-color: rgba(0, 255, 255, 0.8);
+//       transform: translateY(-2px);
+//       box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+//     }
+
+//     &:active {
+//       transform: scale(0.97);
+//     }
+//   }
+
+//   footer {
+//     margin-top: 30px;
+//     height: 60px;
+//     width: 100%;
+//     background: rgba(255, 255, 255, 0.05);
+//     backdrop-filter: blur(10px);
+//   }
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     background:
+//       radial-gradient(circle at 20% 20%, rgba(0,255,255,0.12), transparent 40%),
+//       radial-gradient(circle at 80% 30%, rgba(0,212,255,0.10), transparent 45%),
+//       radial-gradient(circle at 50% 80%, rgba(255,0,255,0.08), transparent 50%);
+//     pointer-events: none;
+//   }
+// }
+
+// header div {
+//   font-size: 3rem;
+//   font-weight: 800;
+//   color: #ffffff;
+//   text-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+
+//   animation: titleFloat 4s ease-in-out infinite;
+// }
+
+// @keyframes titleFloat {
+//   0%, 100% {
+//     transform: translateY(0);
+//   }
+//   50% {
+//     transform: translateY(-8px);
+//   }
+// }
+
+// img {
+//   width: 420px;
+//   height: 420px;
+//   border-radius: 50%;
+//   object-fit: cover;
+//   border: 4px solid rgba(255, 255, 255, 0.2);
+//   box-shadow: 0 0 60px rgba(0, 255, 255, 0.25);
+
+//   animation: imageFloat 6s ease-in-out infinite;
+// }
+
+// @keyframes imageFloat {
+//   0%, 100% {
+//     transform: translateY(0) scale(1);
+//   }
+//   50% {
+//     transform: translateY(-12px) scale(1.02);
+//   }
+// }
+
+// :host {
+//   display: block;
+//   min-height: 100vh;
+//   direction: rtl;
+//   font-family: Arial, sans-serif;
+//   overflow: hidden;
+//   position: relative;
+
+//   /* רקע דינמי */
+//   background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+//   background-size: 400% 400%;
+//   animation: bgShift 12s ease infinite;
+
+//   @keyframes bgShift {
+//     0% { background-position: 0% 50%; }
+//     50% { background-position: 100% 50%; }
+//     100% { background-position: 0% 50%; }
+//   }
+
+//   /* כותרת */
+//   header {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 100vh; /* מאפשר כותרת באמצע אנכית */
+//     text-align: center;
+
+//     div {
+//       font-size: 3rem;
+//       font-weight: 800;
+//       color: #ffffff;
+//       letter-spacing: 1px;
+//       text-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+//       animation: titleFloat 4s ease-in-out infinite;
+//     }
+//   }
+
+//   @keyframes titleFloat {
+//     0%, 100% { transform: translateY(0); }
+//     50% { transform: translateY(-8px); }
+//   }
+
+//   /* סקשן עם תמונה וכפתורים */
+//   section {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 30px;
+//     padding: 20px;
+//     text-align: center;
+//   }
+
+//   /* תמונה */
+//   img {
+//     width: 420px;
+//     height: 420px;
+//     border-radius: 50%;
+//     object-fit: cover;
+//     border: 4px solid rgba(255, 255, 255, 0.2);
+//     box-shadow: 0 0 60px rgba(0, 255, 255, 0.25);
+//     animation: imageFloat 6s ease-in-out infinite;
+//   }
+
+//   @keyframes imageFloat {
+//     0%, 100% { transform: translateY(0) scale(1); }
+//     50% { transform: translateY(-12px) scale(1.02); }
+//   }
+
+//   /* שורת כפתורים */
+//   .button-row {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     align-items: center;
+//     gap: 20px;
+//     width: 100%;
+//   }
+
+//   button {
+//     flex: 1;
+//     max-width: 180px;
+//     min-width: 180px;
+//     height: 55px;
+//     position: relative;
+//     border: none;
+//     border-radius: 10px;
+//     font-size: 1.05rem;
+//     font-weight: 700;
+//     cursor: pointer;
+//     color: #fff;
+//     background: linear-gradient(45deg, #ff6ec7, #3a84ff);
+//     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+//     transition: 0.3s ease;
+//     overflow: hidden;
+
+//     &:hover {
+//       transform: scale(1.05);
+//       box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+//     }
+
+//     &:active {
+//       transform: scale(0.95);
+//     }
+//   }
+
+//   /* footer */
+//   footer {
+//     margin-top: 40px;
+//     height: 70px;
+//     background: rgba(255, 255, 255, 0.06);
+//     backdrop-filter: blur(12px);
+//   }
+
+//   /* particles רקע */
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     background-image:
+//       radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12) 0%, transparent 40%),
+//       radial-gradient(circle at 80% 30%, rgba(0,255,255,0.1) 0%, transparent 45%),
+//       radial-gradient(circle at 50% 80%, rgba(255,0,200,0.08) 0%, transparent 50%);
+//     animation: particlesMove 8s linear infinite;
+//     pointer-events: none;
+//   }
+
+//   @keyframes particlesMove {
+//     0% { transform: translate(0,0) scale(1); }
+//     50% { transform: translate(25px,-25px) scale(1.05); }
+//     100% { transform: translate(0,0) scale(1); }
+//   }
+// }
+
+:host {
+  display: block;
+  min-height: 100vh;
+  direction: rtl;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  position: relative;
+
+  /* רקע דינמי */
+  background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+  background-size: 400% 400%;
+  animation: bgShift 12s ease infinite;
+
+  @keyframes bgShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* כותרת למעלה */
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* מיקום למעלה */
+    padding: 40px 10px;
+    text-align: center;
+
+    div {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 1px;
+      text-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+      animation: titleFloat 4s ease-in-out infinite;
+    }
+  }
+
+  @keyframes titleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* סקשן עם תמונה וכפתורים */
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  /* תמונה */
+  img {
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 60px rgba(0, 255, 255, 0.25);
+    animation: imageFloat 6s ease-in-out infinite;
+  }
+
+  @keyframes imageFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-12px) scale(1.02); }
+  }
+
+  /* שורת כפתורים */
+  .button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  button {
+    flex: 1;
+    max-width: 180px;
+    min-width: 180px;
+    height: 55px;
+    position: relative;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(45deg, #ff6ec7, #3a84ff);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    transition: 0.3s ease;
+    overflow: hidden;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  /* footer */
+  footer {
+    margin-top: 40px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+  }
+
+  /* particles רקע */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.12) 0%, transparent 40%),
+      radial-gradient(circle at 80% 30%, rgba(0,255,255,0.1) 0%, transparent 45%),
+      radial-gradient(circle at 50% 80%, rgba(255,0,200,0.08) 0%, transparent 50%);
+    animation: particlesMove 8s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes particlesMove {
+    0% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(25px,-25px) scale(1.05); }
+    100% { transform: translate(0,0) scale(1); }
+  }
+}

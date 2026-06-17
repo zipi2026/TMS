@@ -1,0 +1,51 @@
+[
+    {
+    "id":"1",
+    "name":"משימה 1",
+    "description":"במהירות",
+    "price":2500,
+    "date":"1.5.2026",
+    "status":"StatusEnum.בתהליך"
+
+  },
+  {
+    "id":"2",
+    "name":"משימה 2",
+    "description":"ביעילות",
+    "price":4000,
+    "date":"1.2.2026",
+    "status":"StatusEnum.בתהליך"
+  },
+  {
+    "id":"3",
+    "name":"משימה 3",
+    "description":"במהירות",
+    "price":2500,
+    "date":"23.1.2026",
+    "status":"StatusEnum.בתהליך"
+  },
+    {
+    "id":"4",
+    "name":"משימה 4",
+    "description":"במהירות",
+    "price":2500,
+    "date":"1.5.2026",
+    "status":"StatusEnum.בתהליך"
+  },
+  {
+    "id":"5",
+    "name":"משימה 5",
+    "description":"ביעילות",
+    "price":4000,
+    "date":"1.2.2026",
+    "status":"StatusEnum.בתהליך"
+  },
+  {
+    "id":"6",
+    "name":"משימה 6",
+    "description":"במהירות",
+    "price":2500,
+    "date":"23.1.2026",
+    "status":"StatusEnum.בתהליך"
+  }
+]

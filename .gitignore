@@ -1,0 +1,77 @@
+# =========================
+# Dependencies
+# =========================
+
+client/node_modules/
+server/node_modules/
+
+# =========================
+# Build Output
+# =========================
+
+client/dist/
+client/tmp/
+client/out-tsc/
+client/bazel-out/
+
+server/dist/
+server/build/
+
+# =========================
+# Angular
+# =========================
+
+client/.angular/cache/
+
+# =========================
+# Environment Variables
+# =========================
+
+server/.env
+server/.env.*
+
+# =========================
+# Coverage
+# =========================
+
+client/coverage/
+server/coverage/
+
+# =========================
+# Logs
+# =========================
+
+*.log
+npm-debug.log
+yarn-error.log
+testem.log
+libpeerconnection.log
+
+# =========================
+# IDEs and Editors
+# =========================
+
+.vscode/
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.history/
+
+# =========================
+# Misc
+# =========================
+
+client/.sass-cache/
+client/connect.lock
+client/typings/
+
+# =========================
+# OS Files
+# =========================
+
+.DS_Store
+Thumbs.db

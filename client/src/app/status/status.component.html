@@ -1,0 +1,11 @@
+<div>
+    <label>
+        סטטוס
+        <br>
+        @for(oneStatus of statusArray;track oneStatus)
+        {
+            <mat-icon [innerText]="oneStatus|statusIcon"
+            [matTooltip]="oneStatus|hebrew"></mat-icon>
+        }
+    </label>
+</div>

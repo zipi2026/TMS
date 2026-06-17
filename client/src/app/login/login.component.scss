@@ -1,0 +1,77 @@
+
+:host{
+    .box{
+        height: 40vh;
+        width: 20vw;
+        background-color: rgb(240, 249, 255);
+        border: solid 1px rgb(97, 148, 168);
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    h2{
+        text-align: center;
+        margin-bottom: 20px;
+        font-family: 'Arial', sans-serif;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+    }
+    .inputDiv{
+        margin-bottom: 15px;
+        align-items: center;
+        text-align: center;
+       
+    }
+
+    .inputDiv label{
+        margin-right: 210px;
+        font-size: 18px;
+        font-weight: 400;
+        font-family: Calibri Light;
+        display: block;
+        margin-bottom: 5px;
+        
+    }
+    .inputDiv span{
+        margin-right: 50px;
+        font-family: 'Arial', sans-serif;
+
+    }
+    .input{
+        width: 70%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+     button {
+        width: 50%;
+        padding: 12px;
+        margin-left: 100px;
+        margin-top: 30px;
+        background-color: #408ada;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background: #2161a5;
+      }
+      button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+    .error{
+        color: rgb(255, 0, 0);
+        float: right;
+        
+    }
+}

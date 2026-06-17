@@ -1,0 +1,442 @@
+
+// // // :host{
+// // //     .bigDiv{
+// // //         margin: 25px;
+// // //         height: 25vh;
+// // //         width: 20vw;
+        
+        
+// // //         background-color: rgb(255, 255, 255);
+// // //         font-size: 9px;
+// // //         text-align: center;
+// // //         border: solid 5px rgb(236, 42, 42);
+// // //         border-radius: 10px;
+        
+// // //     }
+// // //     .task{
+// // //         font-family: Georgia, 'Times New Roman', Times, serif;
+       
+// // //     }
+// // // }
+
+// // // :host {
+// // //   display: block;
+// // // }
+
+// // // .bigDiv {
+// // //   margin: 20px;
+// // //   padding: 20px;
+
+// // //   min-height: 250px;
+// // //   width: 320px;
+
+// // //   background: #ffffff; /* רקע לבן */
+// // //   color: #000; /* טקסט שחור */
+
+// // //   border: 2px solid #e53935;
+// // //   border-radius: 12px;
+
+// // //   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+
+// // //   display: flex;
+// // //   flex-direction: column;
+// // //   gap: 10px;
+
+// // //   text-align: center;
+// // //   transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+// // //   &:hover {
+// // //     transform: translateY(-4px);
+// // //     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+// // //   }
+// // // }
+
+// // // .task {
+// // //   margin: 0;
+// // //   font-family: Arial, sans-serif;
+// // //   font-size: 18px;
+// // //   font-weight: 600;
+// // //   color: #000;
+// // //   word-break: break-word;
+// // // }
+
+// // // mat-icon {
+// // //   font-size: 32px;
+// // //   width: 32px;
+// // //   height: 32px;
+// // //   margin: auto;
+// // //   color: #1976d2;
+// // // }
+
+// // // :host {
+// // //   display: block;
+// // // }
+
+// // // .bigDiv {
+// // //   width: 220px;
+// // //   min-height: 180px;
+
+// // //   padding: 12px;
+// // //   margin: 10px;
+
+// // //   background: white;
+// // //   border: 1px solid #d0d0d0;
+// // //   border-radius: 12px;
+
+// // //   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+// // //   display: flex;
+// // //   flex-direction: column;
+// // //   justify-content: center;
+// // //   align-items: center;
+
+// // //   transition: 0.2s;
+// // // }
+
+// // // .bigDiv:hover {
+// // //   transform: translateY(-3px);
+// // // }
+
+// // // .task {
+// // //   margin: 2px 0;
+
+// // //   font-size: 14px;
+// // //   font-family: Arial, sans-serif;
+// // //   font-weight: 600;
+
+// // //   color: #222;
+// // //   text-align: center;
+// // // }
+
+// // // mat-icon {
+// // //   margin-top: 8px;
+
+// // //   font-size: 24px;
+// // //   width: 24px;
+// // //   height: 24px;
+
+// // //   color: #1976d2;
+// // // }
+// // // :host {
+// // //   display: block;
+// // // }
+
+// // // .bigDiv {
+// // //   width: 180px;       /* צר יותר */
+// // //   min-height: 150px;  /* נמוך יותר */
+// // //   padding: 10px;
+// // //   margin: 8px;
+
+// // //   background: #ffffff;
+// // //   color: #000;
+
+// // //   border: 1px solid #d0d0d0;
+// // //   border-radius: 10px;
+
+// // //   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+// // //   display: flex;
+// // //   flex-direction: column;
+// // //   justify-content: center;
+// // //   align-items: center;
+
+// // //   transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+// // //   &:hover {
+// // //     transform: translateY(-3px);
+// // //     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+// // //   }
+// // // }
+
+// // // .task {
+// // //   margin: 2px 0;
+// // //   font-size: 12px;  /* קטן יותר */
+// // //   font-family: Arial, sans-serif;
+// // //   font-weight: 500;
+// // //   color: #222;
+// // //   text-align: center;
+// // //   word-break: break-word;
+// // // }
+
+// // // mat-icon {
+// // //   margin-top: 4px;
+// // //   font-size: 20px;
+// // //   width: 20px;
+// // //   height: 20px;
+// // //   color: #1976d2;
+// // // }
+
+// // // :host {
+    
+// // //   display: block;
+// // // }
+
+// // // .bigDiv {
+// // //   width: 180px;
+// // //   min-height: 150px;
+// // //   padding: 10px;
+// // //   margin: 8px;
+
+// // //   background: #ffffff;
+// // //   color: #000;
+
+// // //   border: 1px solid #d0d0d0;
+// // //   border-radius: 10px;
+
+// // //   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+// // //   display: flex;
+// // //   flex-direction: column;
+// // //   justify-content: center;
+// // //   align-items: center;
+
+// // //   transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+// // //   &:hover {
+// // //     transform: translateY(-3px);
+// // //     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+// // //   }
+// // // }
+
+// // // .task {
+// // //   margin: 2px 0;
+// // //   font-size: 12px;
+// // //   font-family: Arial, sans-serif;
+// // //   font-weight: 500;
+// // //   color: #222;
+// // //   text-align: center;
+// // //   word-break: break-word;
+// // // }
+
+// // // mat-icon {
+// // //   margin-top: 4px;
+// // //   font-size: 20px;
+// // //   width: 20px;
+// // //   height: 20px;
+// // //   color: #1976d2;
+// // // }
+
+// // :host {
+// //   display: block;
+// // }
+
+// // .bigDiv {
+// //   width: 220px;
+
+// //   min-height: 180px;
+
+// //   padding: 12px;
+
+// //   background: white;
+
+// //   border-radius: 12px;
+
+// //   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+
+// //   display: flex;
+// //   flex-direction: column;
+
+// //   align-items: center;
+
+// //   justify-content: center;
+// // }
+
+// // .task {
+// //   margin: 4px 0;
+
+// //   font-size: 14px;
+
+// //   color: #222;
+// // // }
+
+// // :host {
+// //   display: block;
+// // }
+
+// // .bigDiv {
+// //   width: 180px;
+// //   min-height: 150px;
+
+// //   padding: 10px;
+// //   margin: 5px;
+
+// //   background: white;
+
+// //   border-radius: 10px;
+
+// //   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+// //   display: flex;
+// //   flex-direction: column;
+// //   align-items: center;
+// //   justify-content: center;
+// // }
+
+// // .task {
+// //   margin: 2px 0;
+// //   font-size: 14px;
+// //   color: #222;
+// // }
+
+// // mat-icon {
+// //   font-size: 22px;
+// //   width: 22px;
+// //   height: 22px;
+// // }
+// :host {
+//   display: block;
+//   width: 100%;
+// }
+
+// .bigDiv {
+//   width: 100%;          /* לא קבוע ב־px */
+//   min-height: 140px;
+//   max-width: 220px;     /* כדי שהכרטיס לא יתרחב מעבר */
+//   padding: 10px;
+//   margin: 5px;
+//   background: white;
+//   border-radius: 10px;
+//   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .task {
+
+//   margin: 2px 0;
+
+//   font-size: 12px;
+
+//   line-height: 1.2;
+
+//   color: #222;
+
+//   font-weight: 600;
+// }
+
+// mat-icon {
+//   font-size: 18px;
+//   width: 18px;
+//   height: 18px;
+// }
+:host {
+  display: block;
+  width: 100%;
+}
+
+.bigDiv {
+      animation: popIn 0.4s ease;
+
+      transition: all 0.35s ease;
+
+      position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    box-shadow: 
+    0 4px 6px rgba(0,0,0,0.1),
+    0 8px 20px rgba(0,0,0,0.15);
+      border: 1.5px solid rgba(0, 150, 255, 0.3);
+
+  width: 220px;       /* רוחב הכרטיס */
+  min-height: 220px;  /* גובה הכרטיס */
+  padding: 15px;      /* פנימה יותר מקום לטקסט */
+  margin: 10px;       /* מרווח סביב הכרטיס */
+//   background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.task {
+  font-size: 14px; /* הגדלת גודל הטקסט */
+  color: #222;
+  margin: 4px 0;
+}
+
+mat-icon {
+  width: 28px;
+  height: 28px;
+  color: #007bff;
+  margin-top: 6px;
+}
+.bigDiv:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 
+    0 8px 15px rgba(0,0,0,0.25),
+    0 12px 30px rgba(0,0,0,0.2);
+  transition: 0.3s ease;
+}
+.task {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+  margin: 3px 0;
+}
+// .bigDiv {
+//   position: relative;
+//   overflow: hidden;
+// }
+// .bigDiv::before {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   height: 5px;
+//   width: 100%;
+//   background: linear-gradient(90deg, #00c6ff, #0072ff, #00ff99);
+// }
+.bigDiv::after {
+  content: "📌";
+  position: absolute;
+  font-size: 80px;
+  opacity: 0.2;
+  bottom: -10px;
+  left: -10px;
+}
+// .bigDiv {
+//   transition: all 0.35s ease;
+// }
+
+.bigDiv:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+.task {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.task:first-child {
+  font-size: 16px;
+  font-weight: 800;
+}
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  background: #eee;
+}
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// .bigDiv {
+//   animation: popIn 0.4s ease;
+// }

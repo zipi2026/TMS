@@ -1,0 +1,211 @@
+// // // :host{
+// // //     .ListOfTasks{
+// // //     display:flex;
+// // //     //flex-direction:row;
+// // //      flex-wrap: wrap;
+// // // }
+// // //     body{
+// // //         // size: 100%;
+// // //         background-color: rgb(97, 148, 168);
+// // //     }
+
+// // // }
+// // /* עיצוב ראשי לרשימת המשימות */
+// // .ListOfTasks {
+// //     display: grid;
+// //     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+// //     gap: 20px;
+// //     padding: 30px;
+// //     background: linear-gradient(135deg, #1f1c2c, #928dab);
+// //     border-radius: 15px;
+// //     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+// //     transition: all 0.3s ease-in-out;
+// // }
+
+// // /* אפקט פרופורציה כשמכניסים משימה חדשה */
+// // .ListOfTasks app-task {
+// //     background: #ffffff;
+// //     padding: 20px;
+// //     border-radius: 12px;
+// //     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+// //     transition: transform 0.3s ease, box-shadow 0.3s ease;
+// // }
+
+// // /* אנימציית hover לכל משימה */
+// // .ListOfTasks app-task:hover {
+// //     transform: translateY(-8px) scale(1.02);
+// //     box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+// // }
+
+// // /* אפקט מעבר צבע עדין ברקע המשימה */
+// // .ListOfTasks app-task::before {
+// //     content: '';
+// //     position: absolute;
+// //     top: 0;
+// //     left: 0;
+// //     width: 100%;
+// //     height: 100%;
+// //     border-radius: 12px;
+// //     background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
+// //     opacity: 0;
+// //     transition: opacity 0.4s ease;
+// //     z-index: 0;
+// // }
+
+// // .ListOfTasks app-task:hover::before {
+// //     opacity: 0.15;
+// // }
+// // .ListOfTasks {
+// //   display: grid;
+
+// //   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+// //   gap: 20px;
+
+// //   padding: 20px;
+
+// //   width: 100%;
+// // }
+
+// // app-task {
+// //   display: flex;
+// //   justify-content: center;
+// // }
+// // /* שיפור קריאות טקסט בתוך המשימה */
+// // // .ListOfTasks app-task * {
+// // //     position: relative;
+// // //     z-index: 1;
+// // //     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+// // //     color: #333;
+// // // }
+
+// // /* אנימציה של כניסה (fade in) למשימות */
+// // @keyframes fadeInUp {
+// //     0% {
+// //         opacity: 0;
+// //         transform: translateY(20px);
+// //     }
+// //     100% {
+// //         opacity: 1;
+// //         transform: translateY(0);
+// //     }
+// // }
+
+// // .ListOfTasks app-task {
+// //     animation: fadeInUp 0.5s ease forwards;
+// // }
+
+
+// // :host {
+// //   display: block;
+// // }
+
+// // /* רשימת המשימות */
+// // .ListOfTasks {
+// //   flex-wrap: wrap;
+// //   display: grid;
+// //   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+// //   gap: 20px;
+// //   padding: 20px;
+// //   width: 100%;
+
+// //   background: linear-gradient(135deg, #1f1c2c, #928dab);
+// //   border-radius: 15px;
+// //   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+// //   transition: all 0.3s ease-in-out;
+// // }
+
+// // /* כרטיסי משימות */
+// // .ListOfTasks app-task {
+// //   background: #ffffff;
+// //   padding: 15px;
+// //   border-radius: 12px;
+// //   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+// //   transition: transform 0.3s ease, box-shadow 0.3s ease;
+// //   display: flex;
+// //   flex-direction: column;
+// //   justify-content: center;
+// //   align-items: center;
+// //   position: relative;
+// // }
+
+// // /* אנימציית hover לכל כרטיס */
+// // .ListOfTasks app-task:hover {
+// //   transform: translateY(-6px) scale(1.02);
+// //   box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+// // }
+
+// // /* אפקט מעבר צבע עדין ברקע */
+// // .ListOfTasks app-task::before {
+// //   content: '';
+// //   position: absolute;
+// //   inset: 0;
+// //   border-radius: 12px;
+// //   background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4);
+// //   opacity: 0;
+// //   transition: opacity 0.4s ease;
+// //   z-index: 0;
+// // }
+
+// // .ListOfTasks app-task:hover::before {
+// //   opacity: 0.15;
+// // }
+
+// // /* אנימציית כניסה */
+// // @keyframes fadeInUp {
+// //   0% {
+// //     opacity: 0;
+// //     transform: translateY(20px);
+// //   }
+// //   100% {
+// //     opacity: 1;
+// //     transform: translateY(0);
+// //   }
+// // }
+
+// // .ListOfTasks app-task {
+// //   animation: fadeInUp 0.5s ease forwards;
+// // }
+
+// // /* טקסטים בתוך הכרטיס */
+// // .ListOfTasks app-task * {
+// //   position: relative;
+// //   z-index: 1;
+// //   font-family: Arial, sans-serif;
+// //   color: #222;
+// //   font-size: 14px;
+// //   text-align: center;
+// //   word-break: break-word;
+// // }
+
+// :host {
+//   display: block;
+//   width: 100%;
+// }
+
+// .ListOfTasks {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+//   gap: 15px;
+//   padding: 20px;
+//   width: 100%;
+// }
+// app-task {
+//   display: block;
+// }
+:host {
+  display: block;
+  width: 100%;
+}
+
+.ListOfTasks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* הגדל את המינימום */
+  gap: 25px; /* רווח גדול יותר בין כרטיסים */
+  padding: 25px;
+  width: 100%;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  transition: all 0.3s ease-in-out;
+}

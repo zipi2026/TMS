@@ -1,0 +1,34 @@
+<mat-table [dataSource]="taskList" class="mat-elevation-z8">
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column">
+
+        <mat-header-cell *matHeaderCellDef>
+            <span [innerText]="column"></span>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            @if(column==='status'){
+            <span [innerText]="element[column]|hebrew"></span>
+            <mat-icon [innerText]="element[column]|statusIcon"></mat-icon>
+            }
+            @else{
+            @if(column==='UPDATE'){
+            <mat-icon (click)="changeTask(element)">edit</mat-icon>
+            }
+            @else{
+            @if(column==='date'){
+            <span>{{ element[column] | date:'dd/MM/yyyy' }}</span>
+            }
+            @else{
+            @if(column==='scheduling'){
+            <span>{{ element[column] | date:'dd/MM/yyyy' }}</span>
+            }
+            @else{
+            <span [innerText]="element[column]"></span>
+            }
+            }
+            }
+            }
+        </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+</mat-table>
