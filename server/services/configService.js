@@ -1,12 +1,17 @@
 
-const {readdir} = require('fs').promises;
-const {readFile} = require("fs").promises;
-const envPath = './env/';
+// const {readdir} = require('fs').promises;
+// const {readFile} = require("fs").promises;
+// const envPath = './env/';
+const { readFile } = require("fs").promises;
+const path = require("path");
+
+const envPath = path.join(__dirname, "../env/");
 
 var currentConfig = {};
 
  async function getConfig(){
-    const pathFile = envPath + 'config.json';
+    // const pathFile = envPath + 'config.json';
+    const pathFile = path.join(envPath, "config.json");
     const configFile = await readFile(pathFile, 'utf8');
     const config = JSON.parse(configFile);
     currentConfig = config;

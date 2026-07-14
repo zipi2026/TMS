@@ -1,0 +1,59 @@
+.dialog-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+  padding: 20px 24px 0;
+
+  mat-icon {
+    color: #7c83ff;
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+  }
+}
+
+mat-dialog-content {
+  padding: 24px;
+  min-width: 400px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d32f2f;
+  background: #ffebee;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 4px;
+
+  mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+mat-dialog-actions {
+  padding: 12px 24px 20px;
+  gap: 8px;
+}
+
+:host {
+  direction: rtl;
+}

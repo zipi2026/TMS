@@ -1,33 +1,110 @@
-<!-- <header>
-    <nav>
-      <div class="flex-row">
-        <span  *ngIf="isServerAlive === null">בודק מצב שרת...</span>
-        <span  *ngIf="isServerAlive === true" style="color: green;">✅ השרת פעיל</span>
-        <span  *ngIf="isServerAlive === false" style="color: red;">❌ השרת אינו פעיל</span>
-     </div>
-        <!-- <ul>
-         @for(button of buttons;track button){
-         <li>
-            <a class="active"
-            [innerText]="button.name">
+<!-- ===== MAIN LAYOUT — Modern sidenav + toolbar ===== -->
+<mat-sidenav-container class="sidenav-container">
 
-            </a>
-         </li>
-         }</ul> -->
-        
-    <!-- </nav>
-</header>
+  <!-- ===== SIDENAV ===== -->
+  <mat-sidenav #sidenav mode="side" opened class="sidenav" [opened]="true">
 
-<app-tasks></app-tasks>  -->
-
-<header>
-  <nav>
-    <div class="flex-row">
-      <span *ngIf="isServerAlive === null">בודק מצב שרת...</span>
-      <span *ngIf="isServerAlive === true" style="color: green;">✅ השרת פעיל</span>
-      <span *ngIf="isServerAlive === false" style="color: red;">❌ השרת אינו פעיל</span>
+    <!-- Logo section -->
+    <div class="sidenav-brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+          <path d="M9 14l2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">ניהול משימות</span>
+        <span class="brand-version">v2.0</span>
+      </div>
     </div>
-  </nav>
-</header>
 
-<app-tasks></app-tasks>
+    <mat-divider></mat-divider>
+
+    <!-- User info -->
+    <div class="user-section" *ngIf="authState.currentUser$ | async as user">
+      <div class="user-avatar" [style.background]="'linear-gradient(135deg, var(--primary), var(--accent))'">
+        {{ user.userName.charAt(0).toUpperCase() }}
+      </div>
+      <div class="user-details">
+        <span class="user-name">{{ user.userName }}</span>
+        <span class="user-role">{{ user.roleId === 2 ? 'מנהל מערכת' : 'משתמש רגיל' }}</span>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <!-- Navigation -->
+    <nav class="side-nav">
+      <a mat-list-item
+         routerLink="tasks"
+         routerLinkActive="active-link"
+         [routerLinkActiveOptions]="{exact: false}"
+         class="nav-item">
+        <div class="nav-item-content">
+          <mat-icon class="nav-icon">assignment</mat-icon>
+          <span class="nav-label">משימות</span>
+        </div>
+        <div class="nav-indicator"></div>
+      </a>
+
+      <a mat-list-item
+         routerLink="users"
+         routerLinkActive="active-link"
+         *ngIf="authState.isAdmin$ | async"
+         class="nav-item">
+        <div class="nav-item-content">
+          <mat-icon class="nav-icon">people</mat-icon>
+          <span class="nav-label">ניהול משתמשים</span>
+        </div>
+        <div class="nav-indicator"></div>
+      </a>
+    </nav>
+
+    <!-- Spacer -->
+    <div class="sidenav-spacer"></div>
+
+    <!-- Footer -->
+    <div class="sidenav-footer">
+      <mat-divider></mat-divider>
+      <button class="logout-btn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>התנתקות</span>
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <mat-sidenav-content class="main-content">
+
+    <!-- Toolbar -->
+    <mat-toolbar class="toolbar">
+      <div class="toolbar-left">
+        <button mat-icon-button class="menu-toggle" (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="toolbar-title">מערכת ניהול משימות</span>
+      </div>
+
+      <div class="toolbar-right">
+        <!-- Server status -->
+        <div class="server-status" [matTooltip]="isServerAlive ? 'השרת פעיל' : 'השרת לא זמין'">
+          <span class="status-dot" [class.online]="isServerAlive" [class.offline]="!isServerAlive"></span>
+          <span class="status-text">{{ isServerAlive ? 'מחובר' : 'מנותק' }}</span>
+        </div>
+
+        <!-- User quick menu -->
+        <button mat-icon-button class="user-quick-btn" *ngIf="authState.currentUser$ | async as user" [matTooltip]="user.userName">
+          <div class="quick-avatar">
+            {{ user.userName.charAt(0).toUpperCase() }}
+          </div>
+        </button>
+      </div>
+    </mat-toolbar>
+
+    <!-- Page content -->
+    <div class="page-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

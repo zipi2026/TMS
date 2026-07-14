@@ -1,19 +1,36 @@
-      <!-- <div class="bigDiv" appHoverHighlight>
-          <h1 class="task" [innerText]="task.taskId"></h1>
-          <h1 class="task" [innerText]="task.name"></h1>
-          <h1 class="task" [innerText]="task.description"></h1>
-          <h1 class="task" [innerText]="task.price"></h1>
-          <h1 class="task" [innerText]="task.date"></h1>
-          <h1 class="task" [innerText]="task.status|hebrew"></h1>
-          <mat-icon [innerText]="task.status|statusIcon"></mat-icon>
+<!-- ===== TASK CARD — Modern card design ===== -->
+<div class="task-card" [class]="statusClass">
+  <!-- Colored status bar at top -->
+  <div class="card-status-bar"></div>
 
-      </div> -->
-<div class="bigDiv" appHoverHighlight>
-  <h1 class="task" [innerText]="task.taskId"></h1>
-  <h1 class="task" [innerText]="task.name"></h1>
-  <h1 class="task" [innerText]="task.description"></h1>
-  <h1 class="task" [innerText]="task.price"></h1>
-  <h1 class="task">{{ task.scheduling | date:'dd/MM/yyyy' }}</h1>
-  <h1 class="task" [innerText]="task.status | hebrew"></h1>
-  <mat-icon [innerText]="task.status | statusIcon"></mat-icon>
+  <div class="card-body">
+    <!-- Header: ID + Status badge -->
+    <div class="card-header">
+      <span class="task-id">#{{ task.taskId }}</span>
+      <span class="task-status-badge" [class]="statusClass">
+        {{ statusLabel }}
+      </span>
+    </div>
+
+    <!-- Task name -->
+    <h3 class="task-name">{{ task.name }}</h3>
+
+    <!-- Description -->
+    <p class="task-description">{{ task.description }}</p>
+
+    <!-- Footer: meta + big status icon -->
+    <div class="card-footer">
+      <div class="task-meta">
+        <div class="meta-item">
+          <mat-icon>calendar_today</mat-icon>
+          <span>{{ task.scheduling | date:'dd/MM/yyyy' }}</span>
+        </div>
+        <div class="meta-item">
+          <mat-icon>attach_money</mat-icon>
+          <span>{{ task.price | number }}</span>
+        </div>
+      </div>
+      <mat-icon class="status-big-icon">{{ task.status | statusIcon }}</mat-icon>
+    </div>
+  </div>
 </div>

@@ -1,37 +1,68 @@
-<form [formGroup]="formGroup">
-    <label for="id" [innerText]=" 'id' "></label>
-      <input type="text" id="id"  formControlName="id">
-    <label for="name" [innerText]="'name'"></label>
-      <input type="text" id="name"  formControlName="name">
-    <label for="description" [innerText]="'description'"></label>
-      <textarea style="display: flex;" type="text" id="description"  formControlName="description"></textarea>
-    <label for="price" [innerText]="'price'"></label>
-      <input type="number" id="price"  formControlName="price">
-
-
-
-  <!-- <mat-form-field appearance="fill" dir="rtl">
-  <mat-label>בחר תאריך יעד</mat-label>
-  <input matInput [matDatepicker]="picker"  formControlName="scheduling">
-  
-
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
-</mat-form-field> -->
-
-
-
-      <label>
-    <app-status></app-status>
-    </label>
-    <!-- <label for="status" [innerText]="'status'"></label>
-      <input id="status"  formControlName="status"> -->
-    <!-- <label for="submit" [innerText]="'ADD'"></label>
-      <input id="submit"> -->
-    <!-- <label for="id"></label>
-      <input type="text"> -->
+<div class="task-form-shell">
+  <mat-card class="task-card" appearance="outlined">
+    <div class="card-header">
       <div>
-  <button [disabled]="formGroup.invalid" (click)="addThisTask()" [innerText]="'ADD'" type="submit"></button>
-  <button (click)="cancel()" [innerText]="'CANCEL'"></button>
-  </div>
-</form>
+        <p class="eyebrow">{{ isNew ? 'משימה חדשה' : 'עדכון משימה' }}</p>
+        <h2>{{ isNew ? 'הוספת משימה חדשה' : 'עדכון פרטי משימה' }}</h2>
+      </div>
+      <div class="hero-icon">
+        <mat-icon>task_alt</mat-icon>
+      </div>
+    </div>
+
+    <form [formGroup]="formGroup" class="task-form">
+      <div class="grid">
+        <mat-form-field appearance="outline">
+          <mat-label>שם משימה</mat-label>
+          <input matInput formControlName="name" placeholder="הקלד שם משימה" />
+          <mat-error>יש להזין שם משימה</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>מחיר</mat-label>
+          <input matInput type="number" formControlName="price" min="1500" />
+          <mat-error>המחיר חייב להיות לפחות 1500</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>תאריך יעד</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="scheduling" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <div class="status-selection">
+          <label>סטטוס</label>
+          <mat-button-toggle-group formControlName="status" class="status-buttons">
+            <mat-button-toggle [value]="StatusEnum['ממתין']" [matTooltip]="'ממתין'" matTooltipPosition="above">
+              <mat-icon>hourglass_empty</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [value]="StatusEnum['בתהליך']" [matTooltip]="'בתהליך'" matTooltipPosition="above">
+              <mat-icon>hourglass_top</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [value]="StatusEnum['הושלם']" [matTooltip]="'הושלם'" matTooltipPosition="above">
+              <mat-icon>check</mat-icon>
+            </mat-button-toggle>
+            <mat-button-toggle [value]="StatusEnum['מבוטל']" [matTooltip]="'מבוטל'" matTooltipPosition="above">
+              <mat-icon>cancel</mat-icon>
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>תיאור</mat-label>
+        <textarea matInput rows="4" formControlName="description" placeholder="הוסף פרטים חשובים"></textarea>
+        <mat-error>יש להזין תיאור</mat-error>
+      </mat-form-field>
+
+      <div class="actions">
+        <button mat-stroked-button color="warn" type="button" (click)="cancel()">ביטול</button>
+        <button mat-flat-button color="primary" type="button" (click)="saveTask()" [disabled]="formGroup.invalid">
+          <mat-icon>save</mat-icon>
+          {{ isNew ? 'הוסף משימה' : 'שמור שינויים' }}
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

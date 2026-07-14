@@ -1,59 +1,66 @@
-<!-- 
-<header>
-  <button [innerText]="viewState===theStateEnum.Dashboard?'טבלה':'לוח משימות'" (click)="changeState()"></button>
-    <button id="add" (click)="addTask()">ADD A TASK</button>
+<!-- ===== TASKS PAGE — Modern header + content area ===== -->
+<div class="tasks-container animate-fade-in">
 
-<select [(ngModel)]="status">
-        <option  [value]="-1">{{-1 | hebrew}}</option>
-        <option  [value]="0">{{0 | hebrew}}</option>
-        <option  [value]="1">{{1 | hebrew}}</option>
-        <option  [value]="2">{{2 | hebrew}}</option>
-        <option  [value]="3">{{3 | hebrew}}</option>
-  </select>
+  <!-- Page Header Card -->
+  <mat-card class="page-header-card">
+    <div class="header-content">
+      <div class="header-title-section">
+        <div class="title-icon-wrapper">
+          <mat-icon>assignment</mat-icon>
+        </div>
+        <div>
+          <h1 class="page-title">לוח משימות</h1>
+          <p class="page-subtitle">ניהול ומעקב אחר המשימות שלך</p>
+        </div>
+      </div>
 
-</header>
+      <div class="header-actions">
+        <!-- View toggle -->
+        <mat-button-toggle-group
+          [value]="viewState"
+          (change)="changeState()"
+          class="view-toggle"
+          hideSingleSelectionIndicator>
+          <mat-button-toggle [value]="ViewMode.Dashboard" matTooltip="תצוגת כרטיסיות">
+            <mat-icon>dashboard</mat-icon>
+          </mat-button-toggle>
+          <mat-button-toggle [value]="ViewMode.Table" matTooltip="תצוגת טבלה">
+            <mat-icon>table_chart</mat-icon>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
 
+        <!-- Status filter -->
+        <mat-form-field appearance="outline" class="status-filter">
+          <mat-label>סינון לפי סטטוס</mat-label>
+          <mat-select [(ngModel)]="status">
+            <mat-option [value]="-1">הכל</mat-option>
+            <mat-option [value]="0">ממתין</mat-option>
+            <mat-option [value]="1">בתהליך</mat-option>
+            <mat-option [value]="2">הושלם</mat-option>
+            <mat-option [value]="3">מבוטל</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-<section>
-          <!-- <app-task-tooltip [tasksList]="(tasksList$ | async) || []">
-          <div class="box">
-            מידע נוסף על המשימות  
-          </div>
-        </app-task-tooltip> -->
+        <!-- Add task button -->
+        <button mat-flat-button class="add-task-btn" (click)="addTask()">
+          <mat-icon>add</mat-icon>
+          <span>הוסף משימה</span>
+        </button>
+      </div>
+    </div>
+  </mat-card>
 
-  <!-- <div *ngIf="viewState===theStateEnum.Dashboard">
-    <app-dashboard [taskList]="((taskList$ | async) || []) | filter:status"></app-dashboard>
-  </div>
+  <!-- Content section -->
+  <section class="tasks-content">
+    <div *ngIf="viewState === ViewMode.Dashboard" class="dashboard-view">
+      <app-dashboard [taskList]="((taskList$ | async) || []) | filter:status"></app-dashboard>
+    </div>
 
+    <div *ngIf="viewState === ViewMode.Table" class="table-view">
+      <app-table [taskList]="((taskList$ | async) || []) | filter:status" (taskChanged)="loadTasks()"></app-table>
+    </div>
+  </section>
 
-  <div *ngIf="viewState===theStateEnum.Table">
-    <app-table [taskList]="((taskList$ | async) || []) | filter:status"></app-table>
-  </div>
-
-
-
-</section>
-
- -->
-<header>
-  <button [innerText]="viewState===theStateEnum.Dashboard?'טבלה':'לוח משימות'" (click)="changeState()"></button>
-  <button id="add" (click)="addTask()">ADD A TASK</button>
-
-  <select [(ngModel)]="status">
-    <option [value]="-1">{{-1 | hebrew}}</option>
-    <option [value]="0">{{0 | hebrew}}</option>
-    <option [value]="1">{{1 | hebrew}}</option>
-    <option [value]="2">{{2 | hebrew}}</option>
-    <option [value]="3">{{3 | hebrew}}</option>
-  </select>
-</header>
-
-<section>
-  <div *ngIf="viewState===theStateEnum.Dashboard">
-    <app-dashboard [taskList]="((taskList$ | async) || []) | filter:status"></app-dashboard>
-  </div>
-
-  <div *ngIf="viewState===theStateEnum.Table">
-    <app-table [taskList]="((taskList$ | async) || []) | filter:status"></app-table>
-  </div>
-</section>
+  <!-- Chat widget -->
+  <app-chat></app-chat>
+</div>

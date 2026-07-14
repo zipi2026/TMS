@@ -1,34 +1,47 @@
-<mat-table [dataSource]="taskList" class="mat-elevation-z8">
-    <ng-container *ngFor="let column of columns" [matColumnDef]="column">
+<!-- ===== TABLE VIEW — Modern Material table ===== -->
+<mat-card class="table-card">
+  <div class="table-wrapper">
+    <mat-table [dataSource]="taskList" class="tasks-table">
 
+      <!-- Dynamic columns -->
+      <ng-container *ngFor="let column of columns" [matColumnDef]="column">
         <mat-header-cell *matHeaderCellDef>
-            <span [innerText]="column"></span>
+          <span [innerText]="column"></span>
         </mat-header-cell>
+
         <mat-cell *matCellDef="let element">
-            @if(column==='status'){
-            <span [innerText]="element[column]|hebrew"></span>
-            <mat-icon [innerText]="element[column]|statusIcon"></mat-icon>
-            }
-            @else{
-            @if(column==='UPDATE'){
-            <mat-icon (click)="changeTask(element)">edit</mat-icon>
-            }
-            @else{
-            @if(column==='date'){
+          <!-- Status column -->
+          @if (column === 'status') {
+            <div class="status-cell">
+              <mat-icon class="status-icon">{{ element[column] | statusIcon }}</mat-icon>
+              <span [innerText]="element[column] | hebrew"></span>
+            </div>
+          }
+          <!-- Update column -->
+          @else if (column === 'UPDATE') {
+            <button mat-icon-button color="primary" (click)="changeTask(element)" matTooltip="עריכת משימה">
+              <mat-icon>edit</mat-icon>
+            </button>
+          }
+          <!-- Date columns -->
+          @else if (column === 'date' || column === 'scheduling') {
             <span>{{ element[column] | date:'dd/MM/yyyy' }}</span>
-            }
-            @else{
-            @if(column==='scheduling'){
-            <span>{{ element[column] | date:'dd/MM/yyyy' }}</span>
-            }
-            @else{
+          }
+          <!-- Other columns -->
+          @else {
             <span [innerText]="element[column]"></span>
-            }
-            }
-            }
-            }
+          }
         </mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: columns;"></mat-row>
-</mat-table>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+    </mat-table>
+  </div>
+
+  <!-- Empty state -->
+  <div class="empty-table" *ngIf="taskList.length === 0">
+    <mat-icon>inbox</mat-icon>
+    <span>אין משימות להצגה</span>
+  </div>
+</mat-card>

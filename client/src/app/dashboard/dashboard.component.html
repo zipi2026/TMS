@@ -1,12 +1,31 @@
-<!-- <div  class="ListOfTasks">
-    @for(oneTask of taskList;track oneTask)
-    {
-<app-task [task]="oneTask"></app-task>
-    }
-    </div>
- -->
-<div class="ListOfTasks">
-  @for(oneTask of taskList; track oneTask) {
-    <app-task [task]="oneTask"></app-task>
-  }
+<!-- ===== DASHBOARD — Modern task cards grid ===== -->
+
+<!-- Stats row -->
+<div class="stats-row" *ngIf="taskList.length > 0">
+  <div class="stat-card">
+    <span class="stat-value">{{ totalTasks }}</span>
+    <span class="stat-label">סה״כ משימות</span>
+  </div>
+  <div class="stat-card in-progress">
+    <span class="stat-value">{{ inProgressTasks }}</span>
+    <span class="stat-label">בתהליך</span>
+  </div>
+  <div class="stat-card completed">
+    <span class="stat-value">{{ completedTasks }}</span>
+    <span class="stat-label">הושלמו</span>
+  </div>
+</div>
+
+<!-- Empty state -->
+<div class="empty-state" *ngIf="taskList.length === 0">
+  <div class="empty-icon">
+    <mat-icon>inbox</mat-icon>
+  </div>
+  <h3>אין משימות להצגה</h3>
+  <p>לחץ על "הוסף משימה" כדי להתחיל</p>
+</div>
+
+<!-- Task cards grid -->
+<div class="tasks-grid" *ngIf="taskList.length > 0">
+  <app-task *ngFor="let task of taskList; trackBy: trackById" [task]="task"></app-task>
 </div>

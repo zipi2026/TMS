@@ -15,6 +15,30 @@ router.get('/getTasks', function (req, res, next) {
        }
 })
 
+router.post('/addTask', function (req, res, next) {
+       const task = req.body;
+       try {
+              addOrUpdateTask(task).then((result => {
+                     res.send(result)
+              }))
+       }
+       catch (err) {
+              res.send(err)
+       }
+})
+
+router.post('/addtask', function (req, res, next) {
+       const task = req.body;
+       try {
+              addOrUpdateTask(task).then((result => {
+                     res.send(result)
+              }))
+       }
+       catch (err) {
+              res.send(err)
+       }
+})
+
 router.put('/updateTask', function (req, res, next) {
        const task = req.body;
        try {

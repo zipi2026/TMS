@@ -1,14 +1,140 @@
-:host{
-    input{
-        display: block;
+:host {
+  display: block;
+}
+
+.task-form-shell {
+  padding: 8px;
+}
+
+.task-card {
+  border-radius: 24px;
+  padding: 8px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(237, 242, 255, 0.95));
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.18);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: #4f46e5;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0;
+  color: #111827;
+  font-size: 1.45rem;
+}
+
+.hero-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  color: white;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  box-shadow: 0 12px 25px rgba(59, 130, 246, 0.28);
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.status-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+
+  label {
+    font-size: 0.875rem;
+    color: #6366f1;
+    font-weight: 500;
+  }
+}
+
+.status-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  mat-button-toggle {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+
+    &:hover:not([disabled]) {
+      background-color: rgba(99, 102, 241, 0.08);
+      border-color: #6366f1;
     }
-    form{
-        background-color: #0ee5ec;
+
+    &.mat-button-toggle-checked {
+      background-color: #6366f1;
+      color: white;
+      border-color: #6366f1;
+
+      mat-icon {
+        color: white;
+      }
     }
-    // button{
-    //     // border: solid 2px #0ee5ec;
-    //     // background-color: red;
-    //     border-radius: 6px;
-    //     color:red
-    // }
+
+    mat-icon {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+      color: #6b7280;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .status-buttons {
+    mat-button-toggle {
+      flex: 1;
+      min-width: 70px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .status-buttons {
+    mat-button-toggle {
+      flex: 1;
+      min-width: 60px;
+    }
+  }
 }

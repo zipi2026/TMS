@@ -1,71 +1,101 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject,Input,OnInit,Inject } from '@angular/core';
-import { FormsModule, ReactiveFormsModule,FormGroup,FormBuilder,FormControl, ValidationErrors, ValidatorFn, Validators, AbstractControl} from '@angular/forms';
+import { Component, Inject, OnInit, inject } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { StatusEnum } from '../model/status-enum';
 import { Itask } from '../model/itask';
-import { HebrewPipe } from '../pipes/hebrew-pipe';
-import { StatusComponent } from '../status/status.component';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { TasksService } from '../services/http/tasks.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
+
 @Component({
   selector: 'app-task-form',
-  imports: [MatDatepickerModule,StatusComponent,HebrewPipe,ReactiveFormsModule,CommonModule,FormsModule,MatFormFieldModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTooltipModule,
+    MatButtonToggleModule,
+  ],
   templateUrl: './task-form.component.html',
-  styleUrl: './task-form.component.scss'
+  styleUrl: './task-form.component.scss',
 })
-export class TaskFormComponent implements OnInit{
-  formGroup:FormGroup={}as FormGroup
-  private formBuilder=inject(FormBuilder);
-  readonly startDate=new Date()
-  isNew=true
-  // @Input()task:Itask={}as Itask;
-  task:Itask={}as Itask;
+export class TaskFormComponent implements OnInit {
+  StatusEnum = StatusEnum;
+  formGroup: FormGroup = new FormGroup({});
+  private formBuilder = inject(FormBuilder);
+  private tasksService = inject(TasksService);
+  readonly startDate = new Date();
+  isNew = true;
+  task: Itask = {} as Itask;
+  readonly statusOptions = [
+    { value: StatusEnum.ממתין, label: 'ממתין' },
+    { value: StatusEnum.בתהליך, label: 'בתהליך' },
+    { value: StatusEnum.הושלם, label: 'הושלם' },
+    { value: StatusEnum.מבוטל, label: 'מבוטל' },
+  ];
+
   constructor(
     private dialogRef: MatDialogRef<TaskFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
   ) {}
-  ngOnInit(){
-    this.formGroup=this.formBuilder.group({
-      // id:this.formBuilder.control('',Validators.required),
-      // id:['',Validators.required],
-      name:['',Validators.required],
-      description: ['',Validators.required],
-      price:[1500,[Validators.required,Validators.min(1500)]],
-      // scheduling:[new FormControl<Date | null>(null),this.dateFromTodayValidator],
-      status:[StatusEnum.ממתין]
+
+  ngOnInit(): void {
+    this.task = this.data?.task ?? ({} as Itask);
+    this.isNew = !this.task || Object.keys(this.task).length === 0 || !this.task.taskId;
+
+    this.formGroup = this.formBuilder.group({
+      taskId: [this.task?.taskId ?? null],
+      name: [this.task?.name ?? '', Validators.required],
+      description: [this.task?.description ?? '', Validators.required],
+      price: [this.task?.price ?? 1500, [Validators.required, Validators.min(1500)]],
+      scheduling: [this.task?.scheduling ? new Date(this.task.scheduling) : new Date(), Validators.required],
+      status: [this.task?.status ?? StatusEnum.ממתין, Validators.required],
     });
-    this.task=this.data.task;
-    if(this.task){
-    const { taskId, ...taskWithoutId } = this.task;//לשאול!!!!!!!!!!!!!!!!!!!
-    this.formGroup.setValue(taskWithoutId);
+  }
+
+  saveTask(): void {
+    if (this.formGroup.invalid) {
+      this.formGroup.markAllAsTouched();
+      return;
     }
-    this.isNew=!this.task||Object.keys(this.task).length===0;
-  }
-  dateFromTodayValidator():ValidatorFn{
-    return (control:AbstractControl):ValidationErrors|null=>{
-      const value=control.value;
-      if(!value) return null;
-      const inputDate = new Date(value);
-      const today = new Date();
-      today.setHours(0,0,0,0);
-      inputDate.setHours(0,0,0,0);
 
-      return inputDate<today?null:{dateFromToday:{maxDate:today,actual:inputDate}};
-    };
+    const formValue = this.formGroup.getRawValue();
+    const payload = {
+      taskId: formValue.taskId ?? 0,
+      name: formValue.name,
+      description: formValue.description,
+      price: Number(formValue.price),
+      scheduling: formValue.scheduling,
+      status: Number(formValue.status),
+    } as Itask;
 
-  }
-  addThisTask(){
-    if(this.formGroup.valid){
-       console.log(this.formGroup.value)
-    }
-    this.dialogRef.close({success:true})
-    // const{id,description,price}=this.formGroup.value;
-    // newTask:{id=id,description=description,price=price}
+    const request$ = this.isNew ? this.tasksService.addTask$(payload) : this.tasksService.updateTask$(payload);
 
-  }
-  cancel(){
-    this.dialogRef.close({success:false})
+    request$.subscribe({
+      next: () => this.dialogRef.close({ success: true, task: payload }),
+      error: () => this.dialogRef.close({ success: false, error: 'הפעולה נכשלה. נסה שוב.' }),
+    });
   }
 
+  cancel(): void {
+    this.dialogRef.close({ success: false });
+  }
 }

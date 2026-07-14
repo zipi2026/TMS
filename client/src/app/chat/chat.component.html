@@ -1,0 +1,63 @@
+<!-- FAB trigger button -->
+<button
+  mat-fab
+  class="chat-button"
+  *ngIf="!open"
+  (click)="openChat()"
+  aria-label="פתח צ'אט"
+>
+  <mat-icon>chat</mat-icon>
+</button>
+
+<!-- Chat panel -->
+<mat-card class="chat-box" *ngIf="open">
+
+  <!-- Header -->
+  <mat-card-header>
+    <div class="chat-header">
+      <span class="header-title">
+        <mat-icon>support_agent</mat-icon>
+        צ׳אט תמיכה
+      </span>
+      <button mat-icon-button (click)="closeChat()" aria-label="סגור">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </mat-card-header>
+
+  <!-- Messages area -->
+  <mat-card-content class="chat-content">
+    <div
+      class="msg-wrapper"
+      *ngFor="let msg of messages"
+      [class.own-message]="msg.sender === currentUserName"
+      [class.system-message]="!msg.sender"
+    >
+      <!-- Sender name (only for messages with a sender) -->
+      <div class="msg-sender" *ngIf="msg.sender">
+        {{ msg.sender }}
+      </div>
+
+      <!-- Message bubble -->
+      <div
+        class="chat-message"
+        [innerHTML]="msg.text | chatMessage"
+      ></div>
+    </div>
+  </mat-card-content>
+
+  <!-- Input area -->
+  <mat-card-actions class="chat-input">
+    <mat-form-field appearance="outline" class="input-field">
+      <input
+        matInput
+        placeholder="הקלד הודעה..."
+        [(ngModel)]="input"
+        (keydown.enter)="send()"
+      />
+    </mat-form-field>
+    <button mat-icon-button class="send-btn" (click)="send()" aria-label="שלח">
+      <mat-icon>send</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

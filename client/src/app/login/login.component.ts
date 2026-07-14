@@ -1,38 +1,58 @@
-import { Component, inject} from '@angular/core';
-import { ReactiveFormsModule,FormBuilder,FormGroup,FormsModule, Validators } from '@angular/forms';
-import { CommonModule, NgIf } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AuthStateService } from '../services/auth-state.service';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule,CommonModule,FormsModule],
+  imports: [
+    ReactiveFormsModule, CommonModule,
+    MatCardModule, MatFormFieldModule, MatInputModule,
+    MatButtonModule, MatIconModule, MatProgressSpinnerModule
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-
 export class LoginComponent {
-  router=inject(Router)
-  mouseOverLogin:boolean=false
-  formGroup:FormGroup={} as FormGroup
-  errorMassage="שדה זה הינו חובה*"
-  constructor(private formBuilder:FormBuilder){}
+  router = inject(Router);
+  authState = inject(AuthStateService);
 
-  ngOnInit(){
-    this.formGroup=this.formBuilder.group({
-      username: ['', Validators.required],
+  formGroup: FormGroup;
+  isLoading = false;
+  errorMessage = '';
+  hidePassword = true;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.formGroup = this.formBuilder.group({
+      userName: ['', Validators.required],
       password: ['', Validators.required]
-    })
+    });
   }
 
-  login(){
-        console.log(this.formGroup.value)
+  login(): void {
+    if (this.formGroup.invalid) return;
 
-    const{username,password}=this.formGroup.value
-    // console.log(username);
-    // console.log(password);
-      // localStorage.setItem(this.formGroup.value.username, JSON.stringify(this.formGroup.value.password))
-      localStorage.setItem('user', JSON.stringify({username,password }));
-      this.router.navigate(['/main'])
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    const { userName, password } = this.formGroup.value;
+
+    this.authState.login(userName, password).subscribe({
+      next: () => {
+        this.isLoading = false;
+        this.router.navigate(['/main']);
+      },
+      error: (err) => {
+        this.isLoading = false;
+        this.errorMessage = err?.error?.error || 'שגיאה בהתחברות, אנא נסה שוב';
+      }
+    });
   }
-    
 }

@@ -1,0 +1,226 @@
+:host {
+  direction: rtl;
+
+  /* ===== FLOATING TRIGGER BUTTON ===== */
+  .chat-button {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 1000;
+    width: 56px;
+    height: 56px;
+    box-shadow: 0 6px 24px rgba(99, 102, 241, 0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+
+    mat-icon {
+      color: #fff;
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 32px rgba(99, 102, 241, 0.55);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  /* ===== CHAT PANEL ===== */
+  .chat-box {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 360px;
+    height: 490px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    animation: slideUp 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background: #fff;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(28px) scale(0.92); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ===== HEADER ===== */
+  .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: 700;
+    color: #fff;
+
+    .header-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+  }
+
+  /* Override mat-card-header background via the component */
+  ::ng-deep .chat-box > .mat-mdc-card-header {
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    padding: 14px 20px;
+    color: #fff;
+
+    .mat-mdc-card-header-text {
+      width: 100%;
+    }
+
+    mat-icon {
+      color: #fff;
+    }
+  }
+
+  /* ===== MESSAGE LIST — all children anchored to end (right in RTL) ===== */
+  .chat-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 14px;
+    scroll-behavior: smooth;
+    background: #f8fafc;
+  }
+
+  /* ===== MESSAGE WRAPPER — each message aligns right ===== */
+  .msg-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-end;
+    width: 100%;
+  }
+
+  /* ===== SENDER NAME ===== */
+  .msg-sender {
+    font-size: 0.68rem;
+    font-weight: 700;
+    margin: 0 14px 1px;
+    opacity: 0.8;
+    line-height: 1;
+  }
+
+  /* ===== MESSAGE BUBBLE ===== */
+  .chat-message {
+    display: inline-block;
+    border-radius: 18px;
+    border-bottom-right-radius: 6px;
+    padding: 10px 16px;
+    font-family: "Rubik", "Assistant", "Segoe UI", sans-serif;
+    font-size: 13px;
+    line-height: 1.55;
+    max-width: 82%;
+    word-break: break-word;
+    animation: fadeIn 0.3s ease-in-out;
+    position: relative;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+
+    /* Default: system/other message — clean white card on light bg */
+    background: #ffffff;
+    color: #1e293b;
+    border: 1px solid #e2e8f0;
+  }
+
+  /* ===== OWN MESSAGE BUBBLE (user) ===== */
+  .own-message .chat-message {
+    background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+    color: #1e293b;
+    border: 1px solid #c7d2fe;
+  }
+
+  /* ===== SYSTEM/ADMIN MESSAGE (server alerts) ===== */
+  .system-message .chat-message {
+    background: #fff7ed;
+    color: #7c2d12;
+    border: 1px solid #fed7aa;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== BOLD INSIDE MESSAGE (&&...&& syntax) ===== */
+  ::ng-deep .chat-message .bold {
+    font-weight: 800;
+    color: #dc2626;
+  }
+
+  /* ===== INPUT AREA ===== */
+  .chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    gap: 6px;
+    border-top: 1px solid #e2e8f0;
+    background: #fff;
+  }
+
+  .input-field {
+    flex-grow: 1;
+  }
+
+  .send-btn {
+    color: #6366f1 !important;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #4f46e5 !important;
+      transform: scale(1.1);
+    }
+
+    mat-icon {
+      font-size: 22px;
+    }
+  }
+
+  /* ===== SCROLLBAR IN CHAT ===== */
+  .chat-content::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .chat-content::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .chat-content::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+
+    &:hover {
+      background: #94a3b8;
+    }
+  }
+
+  /* ===== RESPONSIVE: smaller on mobile ===== */
+  @media (max-width: 480px) {
+    .chat-box {
+      width: calc(100vw - 32px);
+      height: 420px;
+      left: 16px;
+      bottom: 16px;
+    }
+
+    .chat-button {
+      bottom: 16px;
+      left: 16px;
+      width: 48px;
+      height: 48px;
+    }
+  }
+}

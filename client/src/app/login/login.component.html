@@ -1,30 +1,69 @@
+<!-- ===== LOGIN PAGE — Modern clean design ===== -->
+<div class="login-wrapper">
+  <!-- Background orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
 
-<div class="container">
-    <div class="box">
-        <h2>התחברות</h2>
-        <form [formGroup]="formGroup">
-            <div class="inputDiv">
-                <label for="username" [innerText]="'user name'"></label>
-                <input type="text" id="username" class="input" required formControlName="username"
-                    placeholder="ENTER USER NAME">
-                <span class="error" *ngIf="formGroup.get('username')?.invalid && mouseOverLogin"
-                    [innerText]="errorMassage">
-
-                </span>
-            </div>
-            <div style="height: 20px;"></div>
-            <div class="inputDiv">
-                <label for="password" [innerText]="'password'"></label>
-                <input type="password" id="password" class="input" required formControlName="password"
-                    placeholder="ENTER YOUR PASSWORD">
-                <span class="error" *ngIf="formGroup.get('password')?.invalid && mouseOverLogin"
-                    [innerText]="errorMassage">
-
-                </span>
-            </div>
-            <div (mouseenter)="mouseOverLogin=true" (mouseleave)="mouseOverLogin=false">
-                <button (click)="login()" [disabled]="formGroup.invalid" [innerText]="'כניסה'"></button>
-            </div>
-        </form>
+  <mat-card class="login-card animate-scale-in">
+    <!-- Card header -->
+    <div class="card-header">
+      <div class="header-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+      </div>
+      <h2 class="card-title">התחברות למערכת</h2>
+      <p class="card-subtitle">הזן את פרטי ההתחברות שלך</p>
     </div>
+
+    <!-- Form -->
+    <form [formGroup]="formGroup" (keydown.enter)="login()" class="login-form">
+      <!-- Username -->
+      <div class="form-field-wrapper">
+        <label class="field-label">שם משתמש</label>
+        <mat-form-field appearance="outline" class="full-width">
+          <input matInput type="text" formControlName="userName" placeholder="הכנס שם משתמש">
+          <mat-icon matPrefix class="field-icon">person</mat-icon>
+          <mat-error *ngIf="formGroup.get('userName')?.hasError('required')">
+            שם משתמש הינו חובה
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Password -->
+      <div class="form-field-wrapper">
+        <label class="field-label">סיסמה</label>
+        <mat-form-field appearance="outline" class="full-width">
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="הכנס סיסמה">
+          <mat-icon matPrefix class="field-icon">lock</mat-icon>
+          <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword" class="toggle-password">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="formGroup.get('password')?.hasError('required')">
+            סיסמה הינה חובה
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Error message -->
+      <div class="error-message" *ngIf="errorMessage">
+        <mat-icon>error_outline</mat-icon>
+        <span>{{ errorMessage }}</span>
+      </div>
+
+      <!-- Submit -->
+      <button mat-flat-button class="login-btn" (click)="login()" [disabled]="formGroup.invalid || isLoading">
+        <mat-spinner diameter="20" *ngIf="isLoading"></mat-spinner>
+        <span *ngIf="!isLoading">התחבר</span>
+      </button>
+    </form>
+
+    <!-- Back to home -->
+    <div class="card-footer">
+      <a routerLink="/home" class="back-link">
+        <mat-icon>arrow_forward</mat-icon>
+        <span>חזרה לדף הבית</span>
+      </a>
+    </div>
+  </mat-card>
 </div>

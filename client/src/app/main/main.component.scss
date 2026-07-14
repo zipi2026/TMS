@@ -1,563 +1,376 @@
-// // :host{
-// //     header{
-// //     align-items: center;
-// //     }
-// //     nav{
-// //         height: 15vh;
-// //         width: 100vw;
-// //         background-color: #0ee5ec;
-// //         overflow: hidden;
-        
-// //     }
-// //     li{
-        
-// //         display: flex;
-// //         flex-direction: row;
-// //         font-size: 30px;
-// //         text-align: center;
-// //         margin: 5vh;
-// //         text-decoration: none;
-// //         display: flex;
-        
-// //         font-size:40px;
-// //         font-family: Calibri Light;
-// //         direction: rtl;
-        
-// //         color: rgb(221, 72, 72);
-// //     }
-// //     ul{
-// //         text-align: center;
-// //         display: flex;
-// //         direction: rtl;
-// //     }
-    
-// // }
-// /* =======================
-//    עיצוב ראשי להדגשה ומודרניות
-//    ======================= */
+/* ============================================================
+   MAIN LAYOUT — Modern sidenav + toolbar
+   Consistent with users page design line
+   ============================================================ */
 
-// // /* סגנון גוף הכללי */
-// // body {
-// //     margin: 0;
-// //     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-// //     background: linear-gradient(135deg, #2c3e50, #34495e);
-// //     color: #f4f4f4;
-// // }
-
-// // /* =======================
-// //    HEADER & NAV
-// //    ======================= */
-// // header {
-// //     width: 100%;
-// //     background: rgba(0, 0, 0, 0.7);
-// //     backdrop-filter: blur(8px);
-// //     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-// //     padding: 15px 30px;
-// //     position: sticky;
-// //     top: 0;
-// //     z-index: 100;
-// // }
-
-// // /* סידור אלמנטים ברו */
-// // nav .flex-row {
-// //     display: flex;
-// //     align-items: center;
-// //     gap: 20px;
-// //     font-size: 16px;
-// //     font-weight: 600;
-// // }
-
-// // /* סטטוס שרת */
-// // nav span {
-// //     padding: 6px 12px;
-// //     border-radius: 8px;
-// //     font-size: 0.95rem;
-// //     transition: all 0.3s ease;
-// // }
-
-// // /* סטטוס חיובי */
-// // nav span[style*="green"] {
-// //     background: rgba(0, 200, 0, 0.2);
-// // }
-
-// // /* סטטוס שלילי */
-// // nav span[style*="red"] {
-// //     background: rgba(200, 0, 0, 0.2);
-// // }
-
-// // /* =======================
-// //    TASK COMPONENT
-// //    ======================= */
-// // app-tasks {
-// //     display: grid;
-// //     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-// //     gap: 25px;
-// //     padding: 40px;
-// //     max-width: 1200px;
-// //     margin: 0 auto;
-// // }
-
-// // /* אנימציה כניסה לכל משימה */
-// // app-tasks app-task {
-// //     background: linear-gradient(145deg, #ffffff, #e0e0e0);
-// //     border-radius: 15px;
-// //     padding: 25px;
-// //     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-// //     transition: transform 0.3s ease, box-shadow 0.3s ease;
-// //     position: relative;
-// //     overflow: hidden;
-// //     animation: fadeInUp 0.5s ease forwards;
-// // }
-
-// // /* אפקט hover */
-// // app-tasks app-task:hover {
-// //     transform: translateY(-6px) scale(1.02);
-// //     box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-// // }
-
-// // /* אנימציית fade in */
-// // @keyframes fadeInUp {
-// //     0% {
-// //         opacity: 0;
-// //         transform: translateY(20px);
-// //     }
-// //     100% {
-// //         opacity: 1;
-// //         transform: translateY(0);
-// //     }
-// // }
-
-// // /* תאורה עדינה על hover */
-// // app-tasks app-task::before {
-// //     content: '';
-// //     position: absolute;
-// //     inset: 0;
-// //     border-radius: 15px;
-// //     background: linear-gradient(60deg, rgba(255,255,255,0.1), rgba(0,0,0,0));
-// //     opacity: 0;
-// //     transition: opacity 0.4s ease;
-// // }
-
-// // app-tasks app-task:hover::before {
-// //     opacity: 0.2;
-// // // }
-// // :host {
-// //   display: block;
-// //   min-height: 100vh;
-// //   direction: rtl;
-// //   position: relative;
-// //   overflow-x: hidden;
-
-// //   background: linear-gradient(135deg, #1e1e2f, #2a2a45, #3a3a5a);
-// //   background-size: 400% 400%;
-// //   animation: bgShift 12s ease infinite;
-
-// //   font-family: Arial, sans-serif;
-// //   color: white;
-// // }
-
-// // @keyframes bgShift {
-// //   0% {
-// //     background-position: 0% 50%;
-// //   }
-
-// //   50% {
-// //     background-position: 100% 50%;
-// //   }
-
-// //   100% {
-// //     background-position: 0% 50%;
-// //   }
-// // }
-
-// // /* רקע דינמי */
-// // :host::before {
-// //   content: "";
-// //   position: fixed;
-// //   inset: 0;
-// //   pointer-events: none;
-
-// //   background-image:
-// //     radial-gradient(circle at 20% 20%, rgba(255,255,255,.08) 0%, transparent 35%),
-// //     radial-gradient(circle at 80% 30%, rgba(0,255,255,.08) 0%, transparent 40%),
-// //     radial-gradient(circle at 50% 80%, rgba(255,0,200,.06) 0%, transparent 45%);
-
-// //   animation: particlesMove 12s linear infinite;
-// // }
-
-// // @keyframes particlesMove {
-// //   0% {
-// //     transform: translate(0,0);
-// //   }
-
-// //   50% {
-// //     transform: translate(30px,-20px);
-// //   }
-
-// //   100% {
-// //     transform: translate(0,0);
-// //   }
-// // }
-
-// // /* HEADER */
-// // header {
-// //   position: sticky;
-// //   top: 0;
-// //   z-index: 100;
-
-// //   padding: 20px 40px;
-
-// //   backdrop-filter: blur(16px);
-// //   background: rgba(255,255,255,.05);
-
-// //   border-bottom: 1px solid rgba(255,255,255,.1);
-
-// //   box-shadow: 0 8px 32px rgba(0,0,0,.25);
-// // }
-
-// // nav {
-// //   display: flex;
-// //   justify-content: center;
-// //   align-items: center;
-// // }
-
-// // /* סטטוס שרת */
-// // .flex-row {
-// //   display: flex;
-// //   align-items: center;
-// //   gap: 12px;
-// // }
-
-// // .flex-row span {
-// //   padding: 12px 22px;
-// //   border-radius: 14px;
-
-// //   font-size: 1rem;
-// //   font-weight: 700;
-
-// //   backdrop-filter: blur(10px);
-
-// //   background: rgba(255,255,255,.08);
-
-// //   border: 1px solid rgba(255,255,255,.1);
-
-// //   transition: .3s;
-// // }
-
-// // .flex-row span:hover {
-// //   transform: translateY(-3px);
-// // }
-
-// // /* ירוק */
-// // .flex-row span[style*="green"] {
-// //   background: rgba(0,255,100,.15);
-// //   box-shadow: 0 0 25px rgba(0,255,100,.25);
-// // }
-
-// // /* אדום */
-// // .flex-row span[style*="red"] {
-// //   background: rgba(255,0,80,.15);
-// //   box-shadow: 0 0 25px rgba(255,0,80,.25);
-// // }
-
-// // /* מצב טעינה */
-// // .flex-row span:not([style]) {
-// //   background: rgba(0,255,255,.12);
-// //   box-shadow: 0 0 20px rgba(0,255,255,.15);
-// // }
-
-// // /* אזור המשימות */
-// // app-task {
-// //   display: block;
-// //   background: rgba(255,255,255,0.95); /* רקע לבן חצי שקוף */
-// //   color: #000; /* טקסט שחור לניגודיות */
-// //   font-size: 1rem; /* גודל קריא */
-// //   font-weight: 600;
-// //   padding: 20px;
-// //   border-radius: 12px;
-// //   border: 2px solid #ff0000; /* ניתן לשנות צבע גבול */
-// //   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-// //   overflow: visible; /* לא לחתוך טקסט */
-// // }
-
-// // app-task * {
-// //   color: inherit; /* כל הטקסטים יורשו צבע שחור */
-// // }
-
-// // /* במקרה שיש app-task בתוך הקומפוננטה */
-// // app-task {
-// //   display: block;
-
-// //   background: rgba(255,255,255,.05);
-
-// //   backdrop-filter: blur(14px);
-
-// //   border: 1px solid rgba(255,255,255,.08);
-
-// //   border-radius: 18px;
-
-// //   box-shadow:
-// //     0 10px 30px rgba(0,0,0,.25),
-// //     0 0 25px rgba(0,255,255,.05);
-
-// //   transition: .35s ease;
-// // }
-
-// // app-task:hover {
-// //   transform: translateY(-6px);
-
-// //   box-shadow:
-// //     0 18px 40px rgba(0,0,0,.35),
-// //     0 0 35px rgba(0,255,255,.12);
-// // }
-
-// // /* אנימציית הופעה */
-// // app-task {
-// //   animation: cardAppear .5s ease;
-// // }
-
-// // @keyframes cardAppear {
-// //   from {
-// //     opacity: 0;
-// //     transform: translateY(25px);
-// //   }
-
-// //   to {
-// //     opacity: 1;
-// //     transform: translateY(0);
-// //   }
-// // }
-
-// // :host {
-// //   display: block;
-// //   min-height: 100vh;
-// //   direction: rtl;
-// //   font-family: Arial, sans-serif;
-// //   overflow: hidden;
-// //   position: relative;
-
-// //   /* רקע כהה פשוט */
-// //   background: #2c2f44;
-
-// //   color: #fff; /* טקסט לבן לקריאות */
-// // }
-
-// // /* HEADER */
-// // header {
-// //   display: flex;
-// //   justify-content: center;
-// //   align-items: center;
-// //   padding: 20px 10px;
-// //   text-align: center;
-// //   background: #3a3f5a;
-// // }
-
-// // nav .flex-row {
-// //   display: flex;
-// //   align-items: center;
-// //   gap: 20px;
-// //   font-size: 16px;
-// //   font-weight: 600;
-// // }
-
-// // nav span {
-// //   padding: 6px 12px;
-// //   border-radius: 8px;
-// //   font-size: 0.95rem;
-// //   font-weight: 600;
-// //   color: #fff;
-// //   background: #444b70;
-// // }
-
-// // /* סטטוס חיובי */
-// // nav span[style*="green"] {
-// //   background: #28a745;
-// //   color: #fff;
-// // }
-
-// // /* סטטוס שלילי */
-// // nav span[style*="red"] {
-// //   background: #dc3545;
-// //   color: #fff;
-// // }
-
-// // /* BUTTONS */
-// // .button-row {
-// //   display: flex;
-// //   justify-content: center;
-// //   align-items: center;
-// //   gap: 15px;
-// //   margin: 20px 0;
-// // }
-
-// // button {
-// //   flex: 1;
-// //   max-width: 180px;
-// //   min-width: 140px;
-// //   height: 50px;
-// //   border: none;
-// //   border-radius: 8px;
-// //   font-size: 1rem;
-// //   font-weight: 600;
-// //   cursor: pointer;
-// //   color: #fff;
-// //   background: #007bff;
-// //   transition: 0.3s ease;
-// // }
-
-// // button:hover {
-// //   background: #0056b3;
-// // }
-
-// // /* TASK CARDS */
-// // app-tasks {
-// //   display: grid;
-// //   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-// //   gap: 20px;
-// //   padding: 30px;
-// //   max-width: 1200px;
-// //   margin: 0 auto;
-// // }
-
-// // app-task {
-// //   background: #f8f9fa; /* לבן פשוט */
-// //   color: #000; /* טקסט שחור */
-// //   font-size: 0.95rem;
-// //   font-weight: 500;
-// //   padding: 15px;
-// //   border-radius: 10px;
-// //   border: 1px solid #ccc;
-// //   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-// //   transition: transform 0.2s ease, box-shadow 0.2s ease;
-// // }
-
-// // app-task:hover {
-// //   transform: translateY(-4px);
-// //   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-// // }
-
-// // /* טקסטים בתוך הכרטיס */
-// // app-task * {
-// //   color: inherit;
-// // }
-
-// :host {
-//   display: block;
-//   min-height: 100vh;
-//   direction: rtl;
-//   font-family: Arial, sans-serif;
-//   background: #2c2f44; /* רקע כהה פשוט */
-//   color: #fff;
-//   padding: 0;
-//   margin: 0;
-// }
-
-// /* HEADER */
-// header {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   padding: 20px;
-//   background: #3a3f5a;
-// }
-
-// nav .flex-row {
-//   display: flex;
-//   align-items: center;
-//   gap: 15px;
-//   font-size: 16px;
-//   font-weight: 600;
-// }
-
-// nav span {
-//   padding: 6px 12px;
-//   border-radius: 8px;
-//   font-size: 0.95rem;
-//   font-weight: 600;
-//   color: #fff;
-//   background: #444b70;
-// }
-
-// nav span[style*="green"] {
-//   background: #28a745;
-// }
-
-// nav span[style*="red"] {
-//   background: #dc3545;
-// }
-
-// /* BUTTON ROW */
-// .button-row {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   gap: 15px;
-//   margin: 20px 0;
-// }
-
-// button {
-//   padding: 10px 20px;
-//   border: none;
-//   border-radius: 8px;
-//   font-size: 1rem;
-//   font-weight: 600;
-//   cursor: pointer;
-//   color: #fff;
-//   background: #007bff;
-//   transition: 0.3s;
-// }
-
-// button:hover {
-//   background: #0056b3;
-// }
-
-// /* TASKS CONTAINER */
-// app-tasks {
-//   display: grid;
-//   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-//   gap: 20px;
-//   padding: 30px;
-//   max-width: 1200px;
-//   margin: 0 auto;
-// }
 :host {
   display: block;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background: #2c2f44;
-  color: #fff;
-  margin: 0;
-  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  direction: rtl;
 }
 
-/* HEADER */
-header {
+.sidenav-container {
+  height: 100vh;
+  background: var(--surface-bg);
+}
+
+/* ===== SIDENAV ===== */
+.sidenav {
+  width: var(--sidenav-width);
+  background: var(--surface-sidenav);
+  color: var(--text-sidenav);
+  border: none;
   display: flex;
+  flex-direction: column;
+}
+
+/* Brand */
+.sidenav-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 20px 20px;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background: #3a3f5a;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+
+  svg {
+    width: 24px;
+    height: 24px;
+    color: #fff;
+  }
 }
 
-nav .flex-row {
+.brand-text {
+  display: flex;
+  flex-direction: column;
+
+  .brand-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+  }
+
+  .brand-version {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+}
+
+/* User section */
+.user-section {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
+  padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.03);
+
+  .user-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .user-details {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0;
+
+    .user-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-role {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+  }
 }
 
-nav span {
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #fff;
-  background: #444b70;
+/* Divider */
+mat-divider {
+  border-color: var(--divider) !important;
 }
 
-nav span[style*="green"] {
-  background: #28a745;
+/* Navigation */
+.side-nav {
+  padding: 10px 0;
+  flex: 1;
 }
 
-nav span[style*="red"] {
-  background: #dc3545;
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  margin: 3px 10px;
+  border-radius: 10px;
+  color: var(--text-sidenav) !important;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  .nav-item-content {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .nav-icon {
+    color: var(--text-muted);
+    transition: color var(--transition-base);
+  }
+
+  .nav-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .nav-indicator {
+    width: 3px;
+    height: 20px;
+    border-radius: 3px;
+    background: transparent;
+    transition: background var(--transition-base);
+    margin-right: 4px;
+  }
+
+  &:hover {
+    background: var(--surface-sidenav-hover);
+    color: #fff !important;
+
+    .nav-icon {
+      color: var(--primary-light);
+    }
+  }
+
+  &.active-link {
+    background: var(--surface-sidenav-active);
+    color: #fff !important;
+    font-weight: 600;
+
+    .nav-icon {
+      color: #a5b4fc;
+    }
+
+    .nav-indicator {
+      background: var(--primary-light);
+    }
+  }
+}
+
+::ng-deep .nav-item .mdc-list-item__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Spacer */
+.sidenav-spacer {
+  flex: 1;
+}
+
+/* Footer */
+.sidenav-footer {
+  padding-bottom: 16px;
+
+  .logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 0 24px;
+    height: 48px;
+    color: var(--danger) !important;
+    border-radius: 0;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: background var(--transition-fast);
+
+    mat-icon {
+      color: var(--danger);
+    }
+
+    &:hover {
+      background: rgba(239, 68, 68, 0.12);
+    }
+  }
+}
+
+/* ===== TOOLBAR ===== */
+.toolbar {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: var(--toolbar-height);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-toggle {
+  color: var(--text-secondary);
+}
+
+.toolbar-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-right: 8px;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Server status */
+.server-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--surface-bg);
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    &.online {
+      background: var(--success);
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+    }
+
+    &.offline {
+      background: var(--danger);
+    }
+  }
+
+  .status-text {
+    font-weight: 500;
+  }
+}
+
+/* Quick user avatar in toolbar */
+.user-quick-btn {
+  .quick-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #fff;
+  }
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+  background: var(--surface-bg);
+}
+
+.page-content {
+  padding: 28px;
+  min-height: calc(100vh - var(--toolbar-height));
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .sidenav {
+    width: 72px;
+
+    .brand-text,
+    .user-details,
+    .nav-label,
+    .logout-btn span {
+      display: none;
+    }
+
+    .sidenav-brand {
+      justify-content: center;
+      padding: 20px 0;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    .user-section {
+      justify-content: center;
+      padding: 14px 0;
+    }
+
+    .nav-item {
+      justify-content: center;
+      margin: 3px 6px;
+
+      .nav-item-content {
+        justify-content: center;
+      }
+
+      .nav-indicator {
+        display: none;
+      }
+    }
+
+    .sidenav-footer .logout-btn {
+      justify-content: center;
+      padding: 0;
+    }
+  }
+
+  .page-content {
+    padding: 16px;
+  }
 }

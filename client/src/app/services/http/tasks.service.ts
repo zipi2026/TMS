@@ -21,7 +21,7 @@ export class TasksService extends HttpServiceBase {
     addTask$(task: Itask): Observable<Boolean>{
       return this.post$<Boolean>(new HttpRequestModel({
         url: this._serverUrl,
-        action: 'addtask',
+        action: 'addTask',
         body:task
       }));
     }
